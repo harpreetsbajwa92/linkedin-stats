@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
+  <meta name="theme-color" content="#0a0a0b" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="description" content="LinkedIn Stats — daily prospecting stats for Harpreet Singh" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>LinkedIn Stats</title>
+  <style>
+    :root {
+      --bg: #0a0a0b;
+      --bg-elevated: #121214;
+      --bg-card: #18181b;
+      --bg-card-hover: #1f1f23;
+      --border: #27272a;
+      --text: #fafafa;
+      --text-muted: #a1a1aa;
+      --text-dim: #71717a;
+      --accent: #0a66c2;
+      --accent-bright: #378fe9;
+      --accent-dim: rgba(10, 102, 194, 0.18);
+      --accent-glow: rgba(10, 102, 194, 0.4);
+      --green: #22c55e;
+      --green-dim: rgba(34, 197, 94, 0.15);
+      --gold: #eab308;
+      --gold-dim: rgba(234, 179, 8, 0.15);
+      --purple: #a855f7;
+      --purple-dim: rgba(168, 85, 247, 0.15);
+      --danger: #ef4444;
+      --radius: 16px;
+      --radius-sm: 12px;
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --nav-h: 64px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-tap-highlight-color: transparent; height: 100%; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg); color: var(--text);
+      min-height: 100%; min-height: 100dvh; line-height: 1.45;
+      overflow-x: hidden; -webkit-font-smoothing: antialiased;
+    }
+    button, input { font-family: inherit; font-size: inherit; color: inherit; }
+    button { cursor: pointer; border: none; background: none; }
+    .app {
+      max-width: 480px; margin: 0 auto; min-height: 100dvh;
+      display: flex; flex-direction: column; position: relative;
+      padding-bottom: calc(var(--nav-h) + var(--safe-bottom) + 8px);
+    }
+    .header {
+      padding: 20px 20px 12px; position: sticky; top: 0; z-index: 20;
+      background: linear-gradient(180deg, var(--bg) 70%, transparent);
+    }
+    .header-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand-mark {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: linear-gradient(145deg, var(--accent-bright), var(--accent));
+      display: grid; place-items: center; font-weight: 800; font-size: 13px; color: #fff;
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+    .brand h1 { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.02em; }
+    .brand .sub { font-size: 0.7rem; color: var(--text-dim); font-weight: 500; }
+    .icon-btn {
+      width: 40px; height: 40px; border-radius: 12px; background: var(--bg-card);
+      border: 1px solid var(--border); display: grid; place-items: center; color: var(--text-muted);
+    }
+    .icon-btn:active { background: var(--bg-card-hover); color: var(--text); }
+    .screen { display: none; padding: 0 20px 24px; flex: 1; }
+    .screen.active { display: block; animation: fadeIn 0.25s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    .date-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+    .date-label { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; }
+    .date-nav { display: flex; gap: 8px; }
+    .date-nav button {
+      width: 36px; height: 36px; border-radius: 10px; background: var(--bg-card);
+      border: 1px solid var(--border); color: var(--text-muted); font-size: 1rem;
+    }
+    .kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+    .kpi {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 16px 14px; position: relative; overflow: hidden;
+    }
+    .kpi::after {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    }
+    .kpi.adds::after { background: var(--accent-bright); }
+    .kpi.accepted::after { background: #22c55e; }
+    .kpi.texts::after { background: var(--green); }
+    .kpi.active::after { background: var(--gold); }
+    .kpi.contacts::after { background: var(--purple); }
+    .kpi.emails::after { background: #06b6d4; }
+    .kpi.meetings { grid-column: 1 / -1; }
+    .kpi.yourturn::after { background: #d4a017; }
+    .gp-count { background: #16a34a !important; }
+    .gp-del { background: transparent; border: 1px solid rgba(239,68,68,.5); color: #f87171; font-size: 0.7rem; padding: 3px 10px; border-radius: 999px; cursor: pointer; }
+    .gp-del.armed { background: #dc2626; color: #fff; border-color: #dc2626; }
+    .gp-del:hover { background: rgba(239,68,68,.12); }
+    .gp-why { font-size: 0.75rem; color: var(--text); opacity: .85; margin-top: 3px; }
+    .pros-only { display: none !important; }
+    body.pros .pros-only { display: block !important; }
+    body.pros .main-only { display: none !important; }
+    body.pros .kpi.yourturn { grid-column: 1 / -1; }
+    .kpi.meetings::after { background: #f97316; }
+    .kpi .label { font-size: 0.68rem; color: var(--text-dim); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; }
+    .kpi .value { font-size: 1.85rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+    .kpi .hint { font-size: 0.7rem; color: var(--text-dim); margin-top: 6px; }
+    .form-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 16px; margin-bottom: 16px;
+    }
+    .form-card h2 { font-size: 0.9rem; font-weight: 700; margin-bottom: 14px; }
+    .field { margin-bottom: 12px; }
+    .field label { display: block; font-size: 0.75rem; color: var(--text-muted); font-weight: 600; margin-bottom: 6px; }
+    .field input {
+      width: 100%; padding: 12px 14px; border-radius: var(--radius-sm);
+      background: var(--bg-elevated); border: 1px solid var(--border); outline: none;
+    }
+    .field input:focus { border-color: var(--accent-bright); }
+    .btn-primary {
+      width: 100%; padding: 14px; border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, var(--accent-bright), var(--accent));
+      color: #fff; font-weight: 700; font-size: 0.95rem;
+      box-shadow: 0 4px 16px var(--accent-glow);
+    }
+    .btn-primary:active { opacity: 0.9; }
+    .btn-secondary {
+      width: 100%; padding: 12px; border-radius: var(--radius-sm);
+      background: var(--bg-elevated); border: 1px solid var(--border);
+      color: var(--text-muted); font-weight: 600; margin-top: 8px;
+    }
+    .month-summary {
+      background: linear-gradient(135deg, var(--accent-dim), rgba(34, 197, 94, 0.08));
+      border: 1px solid rgba(10, 102, 194, 0.3); border-radius: var(--radius);
+      padding: 16px; margin-bottom: 16px;
+    }
+    .month-summary h2 { font-size: 0.85rem; margin-bottom: 12px; }
+    .month-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .month-stat .n { font-size: 1.4rem; font-weight: 800; }
+    .month-stat .l { font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.03em; }
+    .rate-row { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.8rem; color: var(--text-muted); }
+    .rate-row strong { color: var(--text); }
+    .chart {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 16px; margin-bottom: 16px;
+    }
+    .chart h2 { font-size: 0.85rem; margin-bottom: 12px; }
+    .bars { display: flex; align-items: flex-end; gap: 4px; height: 120px; }
+    .bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; height: 100%; justify-content: flex-end; gap: 4px; }
+    .bar {
+      width: 100%; max-width: 14px; border-radius: 4px 4px 2px 2px;
+      background: linear-gradient(180deg, var(--accent-bright), var(--accent));
+      min-height: 2px; transition: height 0.3s ease;
+    }
+    .bar-col .d { font-size: 0.55rem; color: var(--text-dim); }
+    .history-list { display: flex; flex-direction: column; gap: 8px; }
+    .hist-row {
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm);
+      padding: 12px 14px;
+    }
+    .hist-row .left { font-size: 0.85rem; font-weight: 600; }
+    .hist-row .right { font-size: 0.7rem; color: var(--text-dim); text-align: right; line-height: 1.5; }
+    .empty { text-align: center; color: var(--text-dim); padding: 32px 16px; font-size: 0.9rem; }
+    .toast {
+      position: fixed; left: 50%; bottom: calc(var(--nav-h) + var(--safe-bottom) + 16px);
+      transform: translateX(-50%) translateY(20px); opacity: 0;
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 999px;
+      padding: 10px 18px; font-size: 0.85rem; font-weight: 600; pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s; z-index: 50; white-space: nowrap;
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .nav {
+      position: fixed; left: 0; right: 0; bottom: 0; max-width: 480px; margin: 0 auto;
+      height: calc(var(--nav-h) + var(--safe-bottom)); padding-bottom: var(--safe-bottom);
+      background: rgba(10,10,11,0.92); backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border); display: flex; z-index: 30;
+    }
+    .nav button {
+      flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 4px; color: var(--text-dim); font-size: 0.65rem; font-weight: 600;
+    }
+    .nav button.active { color: var(--accent-bright); }
+    .nav svg { width: 22px; height: 22px; }
+    .settings-block { margin-bottom: 16px; }
+    .settings-block h2 { font-size: 0.85rem; margin-bottom: 8px; }
+    .settings-block p { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px; }
+    #fileImport { display: none; }
+    .track-seg { margin: 14px 0 0; }
+    body.pros .brand-mark { background: #d4a017; }
+    body.pros .seg-btn.active, body.pros .cx-count { background: #d4a017; }
+
+    .pro-status { font-size: 0.7rem; font-weight: 800; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
+    .st-pending { background: #3a3a3a; color: #bbb; }
+    .st-messaged { background: #d4a017; color: #111; }
+    .st-replied { background: #1f9d55; color: #fff; }
+    .pro-link { color: inherit; text-decoration: none; }
+    .cx-count { background: var(--accent); color: #fff; font-weight: 800; font-size: 0.8rem; padding: 3px 10px; border-radius: 999px; }
+    .cx-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 11px 0; border-top: 1px solid var(--border); }
+    .cx-row:first-child { border-top: none; }
+    .cx-name { font-weight: 700; font-size: 0.95rem; }
+    .cx-sub { font-size: 0.75rem; color: var(--text-dim); margin-top: 2px; }
+    .cx-phone { font-weight: 700; font-size: 0.9rem; color: var(--accent); text-decoration: none; white-space: nowrap; }
+    .cx-empty { font-size: 0.85rem; color: var(--text-muted); padding: 6px 0; }
+
+    .seg { display: flex; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 4px; margin-bottom: 14px; }
+    .seg-btn { flex: 1; padding: 10px; border-radius: 9px; font-weight: 700; font-size: 0.85rem; color: var(--text-dim); }
+    .seg-btn.active { background: var(--accent); color: #fff; }
+    .pnav { width: 32px; height: 32px; border-radius: 9px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-muted); }
+    .bar-col .d { white-space: nowrap; }
+
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="header-top">
+        <div class="brand">
+          <div class="brand-mark">in</div>
+          <div>
+            <h1>LinkedIn Stats</h1>
+            <div class="sub">Harpreet · prospecting KPIs</div>
+          </div>
+        </div>
+        <button class="icon-btn" id="btnSettings" title="Settings" aria-label="Settings">⚙</button>
+      </div>
+      <div class="seg track-seg" id="trackSeg">
+        <button class="seg-btn active" data-track="prospects">Main</button>
+        <button class="seg-btn" data-track="pros">Professionals</button>
+      </div>
+    </header>
+
+    <section class="screen active" id="screen-today">
+      <div class="date-row">
+        <div class="date-label" id="todayLabel">Today</div>
+        <div class="date-nav">
+          <button id="prevDay" aria-label="Previous day">‹</button>
+          <button id="nextDay" aria-label="Next day">›</button>
+        </div>
+      </div>
+      <div class="kpi-grid">
+        <div class="kpi adds"><div class="label">People added</div><div class="value" id="kpiAdds">0</div><div class="hint">Requests sent</div></div>
+        <div class="kpi accepted"><div class="label">Requests accepted</div><div class="value" id="kpiAccepted">0</div><div class="hint" id="kpiAcceptRate">New connections</div></div>
+        <div class="kpi yourturn pros-only"><div class="label">Ready for you to chat</div><div class="value" id="kpiYourTurn">0</div><div class="hint">Accepted and got "Hi, how are you?", all on the list below</div></div>
+        <div class="kpi texts main-only"><div class="label">Texts sent</div><div class="value" id="kpiTexts">0</div><div class="hint">Outbound messages</div></div>
+        <div class="kpi active main-only"><div class="label">Active chats</div><div class="value" id="kpiActive">0</div><div class="hint">Reciprocal replies</div></div>
+        <div class="kpi contacts main-only"><div class="label">Contacts</div><div class="value" id="kpiContacts">0</div><div class="hint">Phone / WhatsApp</div></div>
+        <div class="kpi emails main-only"><div class="label">Emails</div><div class="value" id="kpiEmails">0</div><div class="hint">Emails shared</div></div>
+        <div class="kpi meetings main-only"><div class="label">Meetings fixed</div><div class="value" id="kpiMeetings">0</div><div class="hint">Coffee / call / office</div></div>
+      </div>
+      <div class="form-card" id="proCard" style="display:none;">
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <h2 style="margin:0;">Professionals added</h2>
+          <span class="cx-count" id="proCount">0</span>
+        </div>
+        <p style="font-size:0.75rem;color:var(--text-dim);margin:4px 0 12px;">Everyone I add shows up here right away. Once they accept, I send only "Hi, how are you?" and they turn to "Your turn" for you to chat with. Never cleared.</p>
+        <div id="proList"></div>
+      </div>
+      <div class="form-card main-only">
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <h2 style="margin:0;">Contacts exchanged</h2>
+          <span class="cx-count" id="cxCount">0</span>
+        </div>
+        <p style="font-size:0.75rem;color:var(--text-dim);margin:4px 0 12px;">Permanent list. Never cleared.</p>
+        <div id="cxList"></div>
+      </div>
+      <div class="form-card main-only">
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <h2 style="margin:0;">Good prospects</h2>
+          <span class="cx-count gp-count" id="gpCount">0</span>
+        </div>
+        <p style="font-size:0.75rem;color:var(--text-dim);margin:4px 0 12px;">People who look promising for you to take over. Never cleared.</p>
+        <div id="gpNote" style="display:none;font-size:0.75rem;color:#fbbf24;background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.3);border-radius:10px;padding:8px 10px;margin-bottom:10px;"></div>
+        <div id="gpList"></div>
+      </div>
+    </section>
+
+    <section class="screen" id="screen-trends">
+      <div class="seg" id="trendSeg">
+        <button class="seg-btn active" data-mode="week">Weekly</button>
+        <button class="seg-btn" data-mode="month">Monthly</button>
+      </div>
+      <div class="month-summary">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+          <button class="pnav" id="prevPeriod">‹</button>
+          <h2 id="periodTitle" style="margin:0;">This week</h2>
+          <button class="pnav" id="nextPeriod">›</button>
+        </div>
+        <div class="month-grid">
+          <div class="month-stat"><div class="n" id="pAdds">0</div><div class="l">Added</div></div>
+          <div class="month-stat"><div class="n" id="pAccepted">0</div><div class="l">Accepted</div></div>
+          <div class="month-stat main-only"><div class="n" id="pTexts">0</div><div class="l">Texts</div></div>
+          <div class="month-stat main-only"><div class="n" id="pActive">0</div><div class="l">Active</div></div>
+          <div class="month-stat main-only"><div class="n" id="pContacts">0</div><div class="l">Phone</div></div>
+          <div class="month-stat main-only"><div class="n" id="pEmails">0</div><div class="l">Emails</div></div>
+          <div class="month-stat main-only"><div class="n" id="pMeetings">0</div><div class="l">Meetings</div></div>
+        </div>
+        <div class="rate-row">
+          Accept rate: <strong id="pAcceptRate">—</strong>
+          <span class="main-only" style="display:inline">· Reply rate: <strong id="pReplyRate">—</strong>
+          · Contact rate: <strong id="pContactRate">—</strong></span>
+          · Days logged: <strong id="pDays">0</strong>
+        </div>
+        <div class="rate-row" id="pProjection" style="border-top:none;padding-top:4px;margin-top:4px;"></div>
+      </div>
+      <div class="chart main-only">
+        <h2 id="chartTitle1">Texts sent · last 12 weeks</h2>
+        <div class="bars" id="chartA"></div>
+      </div>
+      <div class="chart">
+        <h2 id="chartTitle2">People added · last 12 weeks</h2>
+        <div class="bars" id="chartB"></div>
+      </div>
+      <div class="chart main-only">
+        <h2 id="chartTitle3">Active chats · last 12 weeks</h2>
+        <div class="bars" id="chartC"></div>
+      </div>
+    </section>
+
+    <section class="screen" id="screen-history">
+      <h2 style="font-size:0.9rem;margin-bottom:12px;">History</h2>
+      <div class="history-list" id="historyList"></div>
+    </section>
+
+    <section class="screen" id="screen-settings">
+      <div class="settings-block">
+        <h2>How stats update</h2>
+        <p>View-only for you. LinkedIn Manager writes daily counts after messaging batches (also mirrored in <code>data.json</code> beside this file when on the box).</p>
+      </div>
+      <div class="settings-block">
+        <h2>Backup</h2>
+        <p>Data stays on this device (localStorage). Export regularly.</p>
+        <button class="btn-primary" id="btnExport">Export JSON</button>
+        <button class="btn-secondary" id="btnImport">Import JSON</button>
+        <input type="file" id="fileImport" accept="application/json,.json" />
+      </div>
+      <div class="settings-block">
+        <h2>Targets (optional)</h2>
+        <p>Default daily target: 10 people added. Used for month projection.</p>
+        <div class="field"><label>Daily add target</label><input type="number" min="0" id="inTarget" value="10" /></div>
+        <button class="btn-secondary" id="btnSaveTarget">Save target</button>
+        <p style="margin-top:10px;" id="projection"></p>
+      </div>
+      <div class="settings-block">
+        <h2>Danger</h2>
+        <button class="btn-secondary" id="btnClear" style="color:var(--danger);">Clear all data</button>
+      </div>
+    </section>
+
+    <nav class="nav">
+      <button class="active" data-screen="today">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5M4 19h16M8 16V9m4 7V7m4 9v-5"/></svg>
+        Today
+      </button>
+      <button data-screen="trends">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+        Trends
+      </button>
+      <button data-screen="history">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        History
+      </button>
+    </nav>
+    <div class="toast" id="toast"></div>
+  </div>
+
+<script id="pulse-data">window.PULSE_DATA = {"targetAdds": 10, "days": {"2026-10-07": {"peopleAdded": 10, "textsSent": 200, "activeChats": 33, "contactsExchanged": 0, "emailsShared": 0, "meetingsFixed": 0, "requestsAccepted": 1}}, "contacts": [{"name": "Prit Gandhi", "date": "2025-06-25", "via": "LinkedIn", "note": "Shared in LinkedIn chat"}, {"name": "Akshat Tripathi (Akay)", "date": "2025-06-01", "via": "LinkedIn", "note": "WhatsApp, shared in LinkedIn chat"}], "professionals": {"targetAdds": 10, "days": {"2026-10-07": {"peopleAdded": 2, "textsSent": 0, "activeChats": 0, "contactsExchanged": 0, "emailsShared": 0, "meetingsFixed": 0, "requestsAccepted": 0}}, "contacts": [], "people": [{"name": "Richa Laddha, CPA", "profession": "CPA / CA (India)", "city": "Mississauga", "profile": "https://www.linkedin.com/in/richa-laddha-cpa-87136a71/", "added": "2026-10-07", "status": "pending"}, {"name": "Sweety Jasani, CPA", "profession": "CPA / CA (India), self-employed CA", "city": "GTA", "profile": "https://www.linkedin.com/in/sweety-jasani-cpa-0b1b82189/", "added": "2026-10-07", "status": "pending"}]}, "prospects": [{"name": "Sarabjit Singh Ahuja", "date": "2026-10-07", "why": "Wanted a wealth/insurance side hustle. Just cleared his LLQP exams and is waiting for his license. He asked how your business is going (unanswered, 4:02 PM).", "via": "LinkedIn", "profile": "https://www.linkedin.com/in/ACoAABT7vnoB8BR1nT1s0Xa4z_ehGU3JbWF7_D8", "headline": "AR Specialist"}, {"name": "Prit Gandhi", "profile": "https://www.linkedin.com/in/ACoAAEuXfDEBkRlOJ1rglwWMGxuhzkGfKidgaDU", "date": "2026-10-07", "why": "You started texting him (4:16 PM). Number already exchanged in LinkedIn chat.", "via": "LinkedIn"}, {"name": "Cameron Alcott", "profile": "https://www.linkedin.com/in/ACoAABuK9nEBPDLucbwWRcsUQ1xvxYK6194QKk4", "headline": "Helping Canadians Build Wealth Through Financial Literacy | Coach | Entrepreneur", "date": "2026-10-07", "why": "You started texting him (4:17 PM). He had pitched you a financial-literacy presentation.", "via": "LinkedIn"}]};</script>
+<script>
+(function () {
+  const KEY = "harpreet-linkedin-pulse-v1";
+  const STORE = (function () {
+    try { window.localStorage.setItem("__t", "1"); window.localStorage.removeItem("__t"); window.STORE_OK = true; return window.localStorage; }
+    catch (e) { window.STORE_OK = false; const m = {}; return { getItem: (k) => (k in m ? m[k] : null), setItem: (k, v) => { m[k] = String(v); }, removeItem: (k) => { delete m[k]; } }; }
+  })();
+  const METRICS = ["peopleAdded", "textsSent", "activeChats", "contactsExchanged"];
+
+  function todayISO(d = new Date()) {
+    const y = d.getFullYear(), m = String(d.getMonth() + 1).padStart(2, "0"), day = String(d.getDate()).padStart(2, "0");
+    return y + "-" + m + "-" + day;
+  }
+  function parseISO(s) {
+    const [y, m, d] = s.split("-").map(Number);
+    return new Date(y, m - 1, d);
+  }
+  function load() {
+    try {
+      const raw = STORE.getItem(KEY);
+      if (!raw) return { days: {}, targetAdds: 10 };
+      const data = JSON.parse(raw);
+      if (!data.days) data.days = {};
+      if (data.targetAdds == null) data.targetAdds = 10;
+      return data;
+    } catch (e) {
+      return { days: {}, targetAdds: 10 };
+    }
+  }
+  function save(data) {
+    STORE.setItem(KEY, JSON.stringify(data));
+  }
+  function emptyDay() {
+    return { peopleAdded: 0, requestsAccepted: 0, textsSent: 0, activeChats: 0, contactsExchanged: 0, emailsShared: 0, meetingsFixed: 0 };
+  }
+  let track = "prospects";
+  function V() {
+    if (track === "prospects") return data;
+    if (!data.professionals) data.professionals = { days: {}, contacts: [] };
+    if (!data.professionals.days) data.professionals.days = {};
+    if (!data.professionals.contacts) data.professionals.contacts = [];
+    if (data.professionals.targetAdds == null) data.professionals.targetAdds = data.targetAdds || 10;
+    return data.professionals;
+  }
+  function getDay(data, iso) {
+    return Object.assign(emptyDay(), data.days[iso] || {});
+  }
+
+  // ---- Permanent contacts list: merge-only, never deleted ----
+  const CX_KEY = "linkedin-pulse-contacts-permanent-v1";
+  function cxKey(c) { return String(c.name || "").trim().toLowerCase(); }
+  function cxStoreKey(t) { return (t || track) === "pros" ? CX_KEY + "-pros" : CX_KEY; }
+  function loadCx(t) { try { return JSON.parse(STORE.getItem(cxStoreKey(t)) || "[]"); } catch (e) { return []; } }
+  function mergeCx(incoming, t) {
+    const map = new Map();
+    loadCx(t).concat(incoming || []).forEach((c) => {
+      if (!c || !c.name) return;
+      const k = cxKey(c);
+      const m = Object.assign({}, map.get(k) || {}, c); delete m.phone; delete m.email;
+      map.set(k, m);
+    });
+    const list = Array.from(map.values());
+    STORE.setItem(cxStoreKey(t), JSON.stringify(list));
+    return list;
+  }
+  function escapeHTML(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch])); }
+  function renderContacts() {
+    const ds = V();
+    const list = mergeCx(ds.contacts || [], track).slice().sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
+    ds.contacts = list;
+    $("cxCount").textContent = list.length;
+    const el = $("cxList");
+    if (!list.length) { el.innerHTML = '<div class="cx-empty">No contacts exchanged yet. Names show up here as soon as someone shares their number.</div>'; return; }
+    el.innerHTML = list.map((c) => {
+      const d = c.date ? parseISO(c.date).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }) : "";
+      const sub = [d, c.via, c.note].filter(Boolean).map(escapeHTML).join(" · ");
+      const tel = String(c.phone || "").replace(/[^\d+]/g, "");
+      const phone = '<span class="cx-sub">In chat</span>';
+      return '<div class="cx-row"><div><div class="cx-name">' + escapeHTML(c.name) + '</div><div class="cx-sub">' + sub + '</div></div>' + phone + '</div>';
+    }).join("");
+  }
+
+  let data = load();
+  let viewDate = todayISO();
+  let viewMonth = new Date(); // month cursor for trends
+
+  const $ = (id) => document.getElementById(id);
+  function toast(msg) {
+    const t = $("toast");
+    t.textContent = msg;
+    t.classList.add("show");
+    setTimeout(() => t.classList.remove("show"), 1800);
+  }
+
+  function formatLabel(iso) {
+    const d = parseISO(iso);
+    const today = todayISO();
+    if (iso === today) return "Today · " + d.toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
+    return d.toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric", year: "numeric" });
+  }
+
+
+  const GP_HIDE_KEY = "linkedin-stats-prospects-deleted-v1";
+  function gpKey(x) { return String(x.profile || x.name || "").toLowerCase().trim(); }
+  function gpHidden() { try { return JSON.parse(STORE.getItem(GP_HIDE_KEY) || "[]"); } catch (e) { return []; } }
+  document.addEventListener("click", (e) => {
+    const b = e.target.closest && e.target.closest(".gp-del");
+    if (!b) return;
+    if (b.dataset.armed !== "1") {
+      b.dataset.armed = "1"; b.textContent = "Tap again to delete"; b.classList.add("armed");
+      setTimeout(() => { if (b.isConnected) { b.dataset.armed = ""; b.textContent = "Delete"; b.classList.remove("armed"); } }, 4000);
+      return;
+    }
+    const list = gpHidden(); if (!list.includes(b.dataset.key)) list.push(b.dataset.key);
+    STORE.setItem(GP_HIDE_KEY, JSON.stringify(list));
+    renderProspects();
+    if (!window.STORE_OK) { const n = $("gpNote"); if (n) { n.style.display = "block"; n.textContent = "This viewer can\u2019t save deletes, so " + b.dataset.name + " will come back next time. Open the copy on your Desktop instead, or tell me in chat to remove them for good."; } }
+  });
+  function renderProspects() {
+    const el = $("gpList"); if (!el) return;
+    const hidden = gpHidden();
+    const list = (data.prospects || []).filter((x) => !hidden.includes(gpKey(x))).slice().sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
+    $("gpCount").textContent = list.length;
+    if (!list.length) { el.innerHTML = '<div class="cx-empty">No standout prospects yet.</div>'; return; }
+    const fmt = (iso) => iso ? parseISO(iso).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }) : "";
+    el.innerHTML = list.map((x) => {
+      const url = x.profile ? (String(x.profile).startsWith("http") ? x.profile : "https://www." + x.profile) : "";
+      const name = url ? '<a class="pro-link" href="' + escapeHTML(url) + '" target="_blank" rel="noopener">' + escapeHTML(x.name) + ' ↗</a>' : escapeHTML(x.name);
+      const sub = [x.headline, x.city, x.date ? "Flagged " + fmt(x.date) : ""].filter(Boolean).map(escapeHTML).join(" · ");
+      return '<div class="cx-row" style="align-items:flex-start;"><div><div class="cx-name">' + name + '</div><div class="cx-sub">' + sub + '</div>' + (x.why ? '<div class="gp-why">' + escapeHTML(x.why) + '</div>' : '') + '</div><div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;"><span class="pro-status st-replied">Hot</span><button class="gp-del" data-key="' + escapeHTML(gpKey(x)) + '" data-name="' + escapeHTML(x.name) + '">Delete</button></div></div>';
+    }).join("");
+  }
+  function renderPros() {
+    const card = $("proCard");
+    card.style.display = track === "pros" ? "" : "none";
+    if (track !== "pros") return;
+    const people = ((data.professionals || {}).people || []).slice().sort((a, b) => String(b.messaged || b.added || "").localeCompare(String(a.messaged || a.added || "")));
+    $("proCount").textContent = people.length;
+    $("kpiYourTurn").textContent = people.filter((x) => x.status === "messaged").length;
+    const el = $("proList");
+    if (!people.length) { el.innerHTML = '<div class="cx-empty">No professionals added yet. Each one shows up here as soon as I connect and send the first message.</div>'; return; }
+    const fmt = (iso) => iso ? parseISO(iso).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }) : "";
+    el.innerHTML = people.map((x) => {
+      const st = x.status || "pending";
+      const label = st === "messaged" ? "Your turn" : st === "replied" ? "Replied" : "Request sent";
+      const cls = st === "messaged" ? "st-messaged" : st === "replied" ? "st-replied" : "st-pending";
+      const sub = [x.profession, x.city, x.messaged ? "Hi sent " + fmt(x.messaged) : "Added " + fmt(x.added)].filter(Boolean).map(escapeHTML).join(" · ");
+      const url = x.profile ? (String(x.profile).startsWith("http") ? x.profile : "https://www." + x.profile) : "";
+      const name = url ? '<a class="pro-link" href="' + escapeHTML(url) + '" target="_blank" rel="noopener">' + escapeHTML(x.name) + ' ↗</a>' : escapeHTML(x.name);
+      return '<div class="cx-row"><div><div class="cx-name">' + name + '</div><div class="cx-sub">' + sub + '</div></div><span class="pro-status ' + cls + '">' + label + '</span></div>';
+    }).join("");
+  }
+  function renderToday() {
+    const day = getDay(V(), viewDate);
+    $("todayLabel").textContent = formatLabel(viewDate);
+    $("kpiAdds").textContent = day.peopleAdded;
+    $("kpiAccepted").textContent = day.requestsAccepted || 0;
+    $("kpiAcceptRate").textContent = day.peopleAdded > 0 ? Math.round(((day.requestsAccepted || 0) / day.peopleAdded) * 100) + "% of today's adds" : "New connections";
+    $("kpiTexts").textContent = day.textsSent;
+    $("kpiActive").textContent = day.activeChats;
+    $("kpiContacts").textContent = day.contactsExchanged;
+    $("kpiEmails").textContent = day.emailsShared || 0;
+    $("kpiMeetings").textContent = day.meetingsFixed || 0;
+  }
+
+  function monthKey(d) {
+    return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0");
+  }
+
+  function sumMonth(ym) {
+    let adds = 0, texts = 0, active = 0, contacts = 0, emails = 0, meetings = 0, days = 0;
+    Object.keys(V().days).forEach((iso) => {
+      if (!iso.startsWith(ym)) return;
+      const d = getDay(V(), iso);
+      adds += d.peopleAdded; texts += d.textsSent; active += d.activeChats; contacts += d.contactsExchanged; emails += (d.emailsShared||0); meetings += (d.meetingsFixed||0);
+      days += 1;
+    });
+    return { adds, texts, active, contacts, emails, meetings, days };
+  }
+
+  let trendMode = "week";
+  let periodOffset = 0; // 0 = current, -1 = previous ...
+
+  function startOfWeek(d) {
+    const x = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+    const dow = (x.getDay() + 6) % 7; // Monday = 0
+    x.setDate(x.getDate() - dow);
+    return x;
+  }
+  function sumRange(from, to) {
+    const out = { adds: 0, accepted: 0, texts: 0, active: 0, contacts: 0, emails: 0, meetings: 0, days: 0 };
+    Object.keys(V().days).forEach((iso) => {
+      const d = parseISO(iso);
+      if (d < from || d > to) return;
+      const v = getDay(V(), iso);
+      out.adds += v.peopleAdded; out.accepted += (v.requestsAccepted || 0); out.texts += v.textsSent; out.active += v.activeChats;
+      out.contacts += v.contactsExchanged; out.emails += (v.emailsShared || 0); out.meetings += (v.meetingsFixed || 0);
+      out.days += 1;
+    });
+    return out;
+  }
+  function periodRange(mode, offset) {
+    const now = new Date();
+    if (mode === "week") {
+      const from = startOfWeek(now); from.setDate(from.getDate() + offset * 7);
+      const to = new Date(from); to.setDate(from.getDate() + 6);
+      return { from, to };
+    }
+    const from = new Date(now.getFullYear(), now.getMonth() + offset, 1);
+    const to = new Date(from.getFullYear(), from.getMonth() + 1, 0);
+    return { from, to };
+  }
+  function periodLabel(mode, r, offset) {
+    if (mode === "week") {
+      const opt = { month: "short", day: "numeric" };
+      const base = r.from.toLocaleDateString(undefined, opt) + " – " + r.to.toLocaleDateString(undefined, opt);
+      return offset === 0 ? "This week · " + base : base;
+    }
+    return r.from.toLocaleDateString(undefined, { month: "long", year: "numeric" });
+  }
+  function drawBars(containerId, points) {
+    const el = $(containerId);
+    el.innerHTML = "";
+    const max = Math.max(1, ...points.map((p) => p.v));
+    points.forEach((p) => {
+      const col = document.createElement("div"); col.className = "bar-col";
+      const bar = document.createElement("div"); bar.className = "bar";
+      bar.style.height = Math.max(2, Math.round((p.v / max) * 100)) + "%";
+      bar.title = p.label + ": " + p.v;
+      const lab = document.createElement("div"); lab.className = "d"; lab.textContent = p.short;
+      col.appendChild(bar); col.appendChild(lab); el.appendChild(col);
+    });
+  }
+  function seriesFor(mode, field) {
+    const pts = [];
+    for (let i = 11; i >= 0; i--) {
+      const r = periodRange(mode, periodOffset - i);
+      const s = sumRange(r.from, r.to);
+      const short = mode === "week"
+        ? (r.from.getMonth() + 1) + "/" + r.from.getDate()
+        : r.from.toLocaleDateString(undefined, { month: "short" });
+      pts.push({ v: s[field], label: periodLabel(mode, r, periodOffset - i), short });
+    }
+    return pts;
+  }
+
+  function renderTrends() {
+    const r = periodRange(trendMode, periodOffset);
+    const s = sumRange(r.from, r.to);
+    $("periodTitle").textContent = periodLabel(trendMode, r, periodOffset);
+    $("pAdds").textContent = s.adds; $("pAccepted").textContent = s.accepted; $("pTexts").textContent = s.texts; $("pActive").textContent = s.active;
+    $("pContacts").textContent = s.contacts; $("pEmails").textContent = s.emails; $("pMeetings").textContent = s.meetings;
+    $("pDays").textContent = s.days;
+    $("pAcceptRate").textContent = s.adds > 0 ? Math.round((s.accepted / s.adds) * 100) + "%" : "—";
+    $("pReplyRate").textContent = s.texts > 0 ? Math.round((s.active / s.texts) * 100) + "%" : "—";
+    $("pContactRate").textContent = s.active > 0 ? Math.round(((s.contacts + s.emails) / s.active) * 100) + "%" : "—";
+    const target = V().targetAdds || 10;
+    const periodDays = Math.round((r.to - r.from) / 86400000) + 1;
+    $("pProjection").textContent = "Target " + target + " adds/day × " + periodDays + " days = " + (target * periodDays) + " · Actual: " + s.adds;
+    const unit = trendMode === "week" ? "last 12 weeks" : "last 12 months";
+    $("chartTitle1").textContent = "Texts sent · " + unit;
+    $("chartTitle2").textContent = "People added · " + unit;
+    $("chartTitle3").textContent = "Active chats · " + unit;
+    drawBars("chartA", seriesFor(trendMode, "texts"));
+    drawBars("chartB", seriesFor(trendMode, "adds"));
+    drawBars("chartC", seriesFor(trendMode, "active"));
+    const proj = $("projection");
+    if (proj) {
+      const mr = periodRange("month", 0); const ms = sumRange(mr.from, mr.to);
+      const dim = mr.to.getDate();
+      proj.textContent = "At " + target + " adds/day × " + dim + " days ≈ " + (target * dim) + " adds this month. Logged so far: " + ms.adds + ".";
+    }
+    const tIn = $("inTarget"); if (tIn) tIn.value = target;
+  }
+
+  function renderHistory() {
+    const list = $("historyList");
+    const keys = Object.keys(V().days).sort().reverse();
+    if (!keys.length) {
+      list.innerHTML = '<div class="empty">No days logged yet. Save today’s numbers on the Today tab.</div>';
+      return;
+    }
+    list.innerHTML = keys.map((iso) => {
+      const d = getDay(V(), iso);
+      if (track === "pros") return '<div class="hist-row"><div class="left">' + formatLabel(iso) + '</div><div class="right">+' + d.peopleAdded + ' added · ' + (d.requestsAccepted||0) + ' accepted</div></div>';
+      return '<div class="hist-row"><div class="left">' + formatLabel(iso) + '</div><div class="right">+' + d.peopleAdded + ' added · ' + (d.requestsAccepted||0) + ' accepted · ' + d.textsSent + ' texts<br>' + d.activeChats + ' active · ' + d.contactsExchanged + ' phone · ' + (d.emailsShared||0) + ' email · ' + (d.meetingsFixed||0) + ' meetings</div></div>';
+    }).join("");
+  }
+
+  function showScreen(name) {
+    document.querySelectorAll(".screen").forEach((s) => s.classList.remove("active"));
+    document.querySelectorAll(".nav button").forEach((b) => b.classList.remove("active"));
+    $("screen-" + name).classList.add("active");
+    const navBtn = document.querySelector('.nav button[data-screen="' + name + '"]');
+    if (navBtn) navBtn.classList.add("active");
+    if (name === "today") renderToday();
+    if (name === "trends") renderTrends();
+    if (name === "history") renderHistory();
+    if (name === "settings") renderTrends();
+  }
+
+
+  $("prevDay").addEventListener("click", () => {
+    const d = parseISO(viewDate); d.setDate(d.getDate() - 1); viewDate = todayISO(d); renderToday();
+  });
+  $("nextDay").addEventListener("click", () => {
+    const d = parseISO(viewDate); d.setDate(d.getDate() + 1);
+    if (todayISO(d) > todayISO()) return;
+    viewDate = todayISO(d); renderToday();
+  });
+
+  document.querySelectorAll("#trackSeg .seg-btn").forEach((b) => {
+    b.addEventListener("click", () => {
+      document.querySelectorAll("#trackSeg .seg-btn").forEach((x) => x.classList.remove("active"));
+      b.classList.add("active");
+      track = b.dataset.track;
+      document.body.classList.toggle("pros", track === "pros");
+      document.querySelector(".brand .sub").textContent = track === "pros" ? "Professionals connected · accountants, mortgage & real estate agents" : "Harpreet · prospecting KPIs";
+      document.querySelector("#cxList").previousElementSibling.textContent = track === "pros" ? "Permanent list of professionals. Never cleared." : "Permanent list. Never cleared.";
+      renderToday(); renderContacts(); renderProspects(); renderPros(); renderTrends(); renderHistory();
+    });
+  });
+  document.querySelectorAll("#trendSeg .seg-btn").forEach((b) => {
+    b.addEventListener("click", () => {
+      document.querySelectorAll("#trendSeg .seg-btn").forEach((x) => x.classList.remove("active"));
+      b.classList.add("active");
+      trendMode = b.dataset.mode; periodOffset = 0; renderTrends();
+    });
+  });
+  $("prevPeriod").addEventListener("click", () => { periodOffset -= 1; renderTrends(); });
+  $("nextPeriod").addEventListener("click", () => { if (periodOffset < 0) { periodOffset += 1; renderTrends(); } });
+  document.querySelectorAll(".nav button").forEach((b) => {
+    b.addEventListener("click", () => showScreen(b.dataset.screen));
+  });
+  $("btnSettings").addEventListener("click", () => showScreen("settings"));
+
+  $("btnSaveTarget").addEventListener("click", () => {
+    data.targetAdds = Math.max(0, parseInt($("inTarget").value || "10", 10));
+    save(data); renderTrends(); toast("Target saved");
+  });
+
+  $("btnExport").addEventListener("click", () => {
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "linkedin-pulse-" + todayISO() + ".json";
+    a.click();
+    toast("Exported");
+  });
+  $("btnImport").addEventListener("click", () => $("fileImport").click());
+  $("fileImport").addEventListener("change", (e) => {
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const imported = JSON.parse(reader.result);
+        if (!imported.days) throw new Error("bad");
+        data = imported;
+        data.contacts = mergeCx(imported.contacts || [], "prospects");
+        data.professionals = data.professionals || { days: {}, contacts: [] };
+        data.professionals.people = ((imported.professionals || {}).people) || [];
+        data.professionals.contacts = mergeCx(((imported.professionals) || {}).contacts || [], "pros");
+        if (data.targetAdds == null) data.targetAdds = 10;
+        save(data);
+        renderToday(); renderTrends(); renderHistory();
+        toast("Imported");
+      } catch (err) { toast("Import failed"); }
+    };
+    reader.readAsText(file);
+  });
+  $("btnClear").addEventListener("click", () => {
+    if (!confirm("Clear daily stats? (Contacts list is permanent and stays.)")) return;
+    data = { days: {}, targetAdds: 10, contacts: loadCx("prospects"), professionals: { days: {}, contacts: loadCx("pros") } };
+    save(data);
+    renderToday(); renderTrends(); renderHistory();
+    toast("Cleared");
+  });
+
+
+
+  // Prefer companion data.json written by LinkedIn Manager (view-only for Harpreet)
+  async function tryLoadRemote() {
+    try {
+      let remote = window.PULSE_DATA;
+      try {
+        const res = await fetch("data.json?ts=" + Date.now(), { cache: "no-store" });
+        if (res.ok) remote = await res.json();
+      } catch (e) {}
+      if (remote && remote.days) {
+        data = remote;
+        if (data.targetAdds == null) data.targetAdds = 10;
+        data.contacts = mergeCx(remote.contacts || [], "prospects");
+        data.professionals = data.professionals || { days: {}, contacts: [] };
+        data.professionals.people = ((remote.professionals || {}).people) || [];
+        data.professionals.contacts = mergeCx(((remote.professionals) || {}).contacts || [], "pros");
+        save(data);
+        renderToday(); renderContacts(); renderProspects(); renderPros(); renderTrends(); renderHistory();
+      }
+    } catch (e) {}
+  }
+  tryLoadRemote();
+
+  renderToday();
+  renderContacts();
+  renderProspects();
+  renderPros();
+  if (location.hash === "#pros") { const b = document.querySelector('#trackSeg [data-track="pros"]'); if (b) b.click(); }
+})();
+</script>
+</body>
+</html>
