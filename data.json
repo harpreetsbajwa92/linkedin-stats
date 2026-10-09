@@ -99,5 +99,13 @@
       "date": "2026-10-08",
       "why": "Asked what services you offer and how you two could work together"
     }
-  ]
+  ],
+  "learning": {
+    "lastRead": "2026-10-08T23:59:00-04:00",
+    "chatsStudied": 4,
+    "messagesStudied": 47,
+    "daysStudied": 1,
+    "playbookLines": 11,
+    "latest": "Learned your style: short and casual, personal hooks, no pressure, and a quick move to a phone call once someone shows interest."
+  }
 }
