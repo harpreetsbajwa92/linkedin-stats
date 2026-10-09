@@ -94,6 +94,7 @@
     .kpi.contacts::after { background: var(--purple); }
     .kpi.emails::after { background: #06b6d4; }
     .kpi.meetings { grid-column: 1 / -1; }
+    .kpi.gp::after { background: #ef4444; }
     .kpi.yourturn::after { background: #d4a017; }
     .gp-count { background: #16a34a !important; }
     .gp-del { background: transparent; border: 1px solid rgba(239,68,68,.5); color: #f87171; font-size: 0.7rem; padding: 3px 10px; border-radius: 999px; cursor: pointer; }
@@ -247,9 +248,7 @@
         <div class="kpi yourturn pros-only"><div class="label">Ready for you to chat</div><div class="value" id="kpiYourTurn">0</div><div class="hint">Accepted and got "Hi, how are you?", all on the list below</div></div>
         <div class="kpi texts main-only"><div class="label">Texts sent</div><div class="value" id="kpiTexts">0</div><div class="hint">Outbound messages</div></div>
         <div class="kpi active main-only"><div class="label">Active chats</div><div class="value" id="kpiActive">0</div><div class="hint">Reciprocal replies</div></div>
-        <div class="kpi contacts main-only"><div class="label">Contacts</div><div class="value" id="kpiContacts">0</div><div class="hint">Phone / WhatsApp</div></div>
-        <div class="kpi emails main-only"><div class="label">Emails</div><div class="value" id="kpiEmails">0</div><div class="hint">Emails shared</div></div>
-        <div class="kpi meetings main-only"><div class="label">Meetings fixed</div><div class="value" id="kpiMeetings">0</div><div class="hint">Coffee / call / office</div></div>
+        <div class="kpi gp main-only" style="grid-column:1 / -1;"><div class="label">Good prospects waiting for you</div><div class="value" id="kpiGP">0</div><div class="hint">People handed over for you to chat with</div></div>
       </div>
       <div class="form-card" id="proCard" style="display:none;">
         <div style="display:flex;align-items:center;justify-content:space-between;">
@@ -302,14 +301,10 @@
           <div class="month-stat"><div class="n" id="pAccepted">0</div><div class="l">Accepted</div></div>
           <div class="month-stat main-only"><div class="n" id="pTexts">0</div><div class="l">Texts</div></div>
           <div class="month-stat main-only"><div class="n" id="pActive">0</div><div class="l">Active</div></div>
-          <div class="month-stat main-only"><div class="n" id="pContacts">0</div><div class="l">Phone</div></div>
-          <div class="month-stat main-only"><div class="n" id="pEmails">0</div><div class="l">Emails</div></div>
-          <div class="month-stat main-only"><div class="n" id="pMeetings">0</div><div class="l">Meetings</div></div>
         </div>
         <div class="rate-row">
           Accept rate: <strong id="pAcceptRate">—</strong>
-          <span class="main-only" style="display:inline">· Reply rate: <strong id="pReplyRate">—</strong>
-          · Contact rate: <strong id="pContactRate">—</strong></span>
+          <span class="main-only" style="display:inline">· Reply rate: <strong id="pReplyRate">—</strong></span>
           · Days logged: <strong id="pDays">0</strong>
         </div>
         <div class="rate-row" id="pProjection" style="border-top:none;padding-top:4px;margin-top:4px;"></div>
@@ -544,9 +539,7 @@
     $("kpiAcceptRate").textContent = day.peopleAdded > 0 ? Math.round(((day.requestsAccepted || 0) / day.peopleAdded) * 100) + "% of today's adds" : "New connections";
     $("kpiTexts").textContent = day.textsSent;
     $("kpiActive").textContent = day.activeChats;
-    $("kpiContacts").textContent = day.contactsExchanged;
-    $("kpiEmails").textContent = day.emailsShared || 0;
-    $("kpiMeetings").textContent = day.meetingsFixed || 0;
+    { const g = $("kpiGP"); if (g) { const hid = (typeof gpHidden === "function") ? gpHidden() : []; g.textContent = (data.prospects || []).filter((x) => !hid.includes(gpKey(x))).length; } }
   }
 
   function monthKey(d) {
@@ -635,11 +628,9 @@
     const s = sumRange(r.from, r.to);
     $("periodTitle").textContent = periodLabel(trendMode, r, periodOffset);
     $("pAdds").textContent = s.adds; $("pAccepted").textContent = s.accepted; $("pTexts").textContent = s.texts; $("pActive").textContent = s.active;
-    $("pContacts").textContent = s.contacts; $("pEmails").textContent = s.emails; $("pMeetings").textContent = s.meetings;
     $("pDays").textContent = s.days;
     $("pAcceptRate").textContent = s.adds > 0 ? Math.round((s.accepted / s.adds) * 100) + "%" : "—";
     $("pReplyRate").textContent = s.texts > 0 ? Math.round((s.active / s.texts) * 100) + "%" : "—";
-    $("pContactRate").textContent = s.active > 0 ? Math.round(((s.contacts + s.emails) / s.active) * 100) + "%" : "—";
     const target = V().targetAdds || 10;
     const periodDays = Math.round((r.to - r.from) / 86400000) + 1;
     $("pProjection").textContent = "Target " + target + " adds/day × " + periodDays + " days = " + (target * periodDays) + " · Actual: " + s.adds;
@@ -669,7 +660,7 @@
     list.innerHTML = keys.map((iso) => {
       const d = getDay(V(), iso);
       if (track === "pros") return '<div class="hist-row"><div class="left">' + formatLabel(iso) + '</div><div class="right">+' + d.peopleAdded + ' added · ' + (d.requestsAccepted||0) + ' accepted</div></div>';
-      return '<div class="hist-row"><div class="left">' + formatLabel(iso) + '</div><div class="right">+' + d.peopleAdded + ' added · ' + (d.requestsAccepted||0) + ' accepted · ' + d.textsSent + ' texts<br>' + d.activeChats + ' active · ' + d.contactsExchanged + ' phone · ' + (d.emailsShared||0) + ' email · ' + (d.meetingsFixed||0) + ' meetings</div></div>';
+      return '<div class="hist-row"><div class="left">' + formatLabel(iso) + '</div><div class="right">+' + d.peopleAdded + ' added · ' + (d.requestsAccepted||0) + ' accepted · ' + d.textsSent + ' texts<br>' + d.activeChats + ' active</div></div>';
     }).join("");
   }
 
