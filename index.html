@@ -260,14 +260,6 @@
       </div>
       <div class="form-card main-only">
         <div style="display:flex;align-items:center;justify-content:space-between;">
-          <h2 style="margin:0;">Contacts exchanged</h2>
-          <span class="cx-count" id="cxCount">0</span>
-        </div>
-        <p style="font-size:0.75rem;color:var(--text-dim);margin:4px 0 12px;">Permanent list. Never cleared.</p>
-        <div id="cxList"></div>
-      </div>
-      <div class="form-card main-only">
-        <div style="display:flex;align-items:center;justify-content:space-between;">
           <h2 style="margin:0;">Good prospects</h2>
           <span class="cx-count gp-count" id="gpCount">0</span>
         </div>
@@ -441,8 +433,9 @@
     const ds = V();
     const list = mergeCx(ds.contacts || [], track).slice().sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
     ds.contacts = list;
-    $("cxCount").textContent = list.length;
+    const cc = $("cxCount"); if (cc) cc.textContent = list.length;
     const el = $("cxList");
+    if (!el) return;
     if (!list.length) { el.innerHTML = '<div class="cx-empty">No contacts exchanged yet. Names show up here as soon as someone shares their number.</div>'; return; }
     el.innerHTML = list.map((c) => {
       const d = c.date ? parseISO(c.date).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }) : "";
@@ -693,7 +686,6 @@
       track = b.dataset.track;
       document.body.classList.toggle("pros", track === "pros");
       document.querySelector(".brand .sub").textContent = track === "pros" ? "Professionals connected · accountants, mortgage & real estate agents" : "Harpreet · prospecting KPIs";
-      document.querySelector("#cxList").previousElementSibling.textContent = track === "pros" ? "Permanent list of professionals. Never cleared." : "Permanent list. Never cleared.";
       renderToday(); renderContacts(); renderProspects(); renderLearning(); renderPros(); renderTrends(); renderHistory();
     });
   });
