@@ -1,186 +1,191 @@
 {
- "targetAdds": 10,
- "days": {
-  "2026-10-07": {
-   "peopleAdded": 10,
-   "textsSent": 211,
-   "activeChats": 36,
-   "contactsExchanged": 0,
-   "emailsShared": 0,
-   "meetingsFixed": 0,
-   "requestsAccepted": 2
-  },
-  "2026-10-08": {
-   "peopleAdded": 0,
-   "textsSent": 10,
-   "activeChats": 7,
-   "contactsExchanged": 0,
-   "emailsShared": 0,
-   "meetingsFixed": 0,
-   "requestsAccepted": 0
-  },
-  "2026-10-09": {
-   "peopleAdded": 8,
-   "textsSent": 5,
-   "activeChats": 0,
-   "contactsExchanged": 0,
-   "emailsShared": 0,
-   "meetingsFixed": 0,
-   "requestsAccepted": 1
-  },
-  "2026-10-10": {
-   "peopleAdded": 8,
-   "textsSent": 3
-  }
- },
- "contacts": [
-  {
-   "name": "Prit Gandhi",
-   "date": "2025-06-25",
-   "via": "LinkedIn",
-   "note": "Shared in LinkedIn chat"
-  },
-  {
-   "name": "Akshat Tripathi (Akay)",
-   "date": "2025-06-01",
-   "via": "LinkedIn",
-   "note": "WhatsApp, shared in LinkedIn chat"
-  }
- ],
- "professionals": {
   "targetAdds": 10,
   "days": {
-   "2026-10-07": {
-    "peopleAdded": 2,
-    "textsSent": 0,
-    "activeChats": 0,
-    "contactsExchanged": 0,
-    "emailsShared": 0,
-    "meetingsFixed": 0,
-    "requestsAccepted": 0
-   },
-   "2026-10-09": {
-    "peopleAdded": 2,
-    "textsSent": 0,
-    "activeChats": 0,
-    "contactsExchanged": 0,
-    "emailsShared": 0,
-    "meetingsFixed": 0,
-    "requestsAccepted": 0
-   },
-   "2026-10-10": {
-    "peopleAdded": 2,
-    "textsSent": 0,
-    "activeChats": 0,
-    "contactsExchanged": 0,
-    "emailsShared": 0,
-    "meetingsFixed": 0,
-    "requestsAccepted": 0
-   }
+    "2026-10-07": {
+      "peopleAdded": 10,
+      "textsSent": 211,
+      "activeChats": 36,
+      "contactsExchanged": 0,
+      "emailsShared": 0,
+      "meetingsFixed": 0,
+      "requestsAccepted": 2
+    },
+    "2026-10-08": {
+      "peopleAdded": 0,
+      "textsSent": 10,
+      "activeChats": 7,
+      "contactsExchanged": 0,
+      "emailsShared": 0,
+      "meetingsFixed": 0,
+      "requestsAccepted": 0
+    },
+    "2026-10-09": {
+      "peopleAdded": 8,
+      "textsSent": 5,
+      "activeChats": 0,
+      "contactsExchanged": 0,
+      "emailsShared": 0,
+      "meetingsFixed": 0,
+      "requestsAccepted": 1
+    },
+    "2026-10-10": {
+      "peopleAdded": 8,
+      "textsSent": 3
+    }
   },
-  "contacts": [],
-  "people": [
-   {
-    "name": "Richa Laddha, CPA",
-    "profession": "CPA / CA (India)",
-    "city": "Mississauga",
-    "profile": "https://www.linkedin.com/in/richa-laddha-cpa-87136a71/",
-    "added": "2026-10-07",
-    "status": "pending"
-   },
-   {
-    "name": "Sweety Jasani, CPA",
-    "profession": "CPA / CA (India), self-employed CA",
-    "city": "GTA",
-    "profile": "https://www.linkedin.com/in/sweety-jasani-cpa-0b1b82189/",
-    "added": "2026-10-07",
-    "status": "pending"
-   },
-   {
-    "name": "Gurwinder B.",
-    "profession": "Mortgage agent",
-    "city": "GTA",
-    "profile": "https://www.linkedin.com/in/gbsmortgages/",
-    "added": "2026-10-09",
-    "status": "pending"
-   },
-   {
-    "name": "Bajwa CPA",
-    "profession": "CPA / CGA firm",
-    "city": "GTA",
-    "profile": "https://www.linkedin.com/in/bajwa-cpa-381224199/",
-    "added": "2026-10-09",
-    "status": "pending"
-   },
-   {
-    "name": "Sim Singh Realtor",
-    "profession": "Realtor",
-    "city": "Etobicoke",
-    "profile": "https://www.linkedin.com/in/realtor-simsingh/",
-    "added": "2026-10-10",
-    "status": "pending"
-   },
-   {
-    "name": "Jagpreet Singh Benipal",
-    "profession": "Accountant",
-    "city": "GTA",
-    "profile": "https://www.linkedin.com/in/benipal-jagpreet/",
-    "added": "2026-10-10",
-    "status": "pending"
-   }
-  ]
- },
- "prospects": [
-  {
-   "name": "Sarabjit Singh Ahuja",
-   "date": "2026-10-07",
-   "why": "Wanted a wealth/insurance side hustle. Just cleared his LLQP exams and is waiting for his license. He asked how your business is going (unanswered, 4:02 PM).",
-   "via": "LinkedIn",
-   "profile": "https://www.linkedin.com/in/ACoAABT7vnoB8BR1nT1s0Xa4z_ehGU3JbWF7_D8",
-   "headline": "AR Specialist"
+  "contacts": [
+    {
+      "name": "Prit Gandhi",
+      "date": "2025-06-25",
+      "via": "LinkedIn",
+      "note": "Shared in LinkedIn chat"
+    },
+    {
+      "name": "Akshat Tripathi (Akay)",
+      "date": "2025-06-01",
+      "via": "LinkedIn",
+      "note": "WhatsApp, shared in LinkedIn chat"
+    },
+    {
+      "date": "2026-10-09",
+      "name": "Eben Raaj",
+      "note": "Shared his number to call Harpreet"
+    }
+  ],
+  "professionals": {
+    "targetAdds": 10,
+    "days": {
+      "2026-10-07": {
+        "peopleAdded": 2,
+        "textsSent": 0,
+        "activeChats": 0,
+        "contactsExchanged": 0,
+        "emailsShared": 0,
+        "meetingsFixed": 0,
+        "requestsAccepted": 0
+      },
+      "2026-10-09": {
+        "peopleAdded": 2,
+        "textsSent": 0,
+        "activeChats": 0,
+        "contactsExchanged": 0,
+        "emailsShared": 0,
+        "meetingsFixed": 0,
+        "requestsAccepted": 0
+      },
+      "2026-10-10": {
+        "peopleAdded": 2,
+        "textsSent": 0,
+        "activeChats": 0,
+        "contactsExchanged": 0,
+        "emailsShared": 0,
+        "meetingsFixed": 0,
+        "requestsAccepted": 0
+      }
+    },
+    "contacts": [],
+    "people": [
+      {
+        "name": "Richa Laddha, CPA",
+        "profession": "CPA / CA (India)",
+        "city": "Mississauga",
+        "profile": "https://www.linkedin.com/in/richa-laddha-cpa-87136a71/",
+        "added": "2026-10-07",
+        "status": "pending"
+      },
+      {
+        "name": "Sweety Jasani, CPA",
+        "profession": "CPA / CA (India), self-employed CA",
+        "city": "GTA",
+        "profile": "https://www.linkedin.com/in/sweety-jasani-cpa-0b1b82189/",
+        "added": "2026-10-07",
+        "status": "pending"
+      },
+      {
+        "name": "Gurwinder B.",
+        "profession": "Mortgage agent",
+        "city": "GTA",
+        "profile": "https://www.linkedin.com/in/gbsmortgages/",
+        "added": "2026-10-09",
+        "status": "pending"
+      },
+      {
+        "name": "Bajwa CPA",
+        "profession": "CPA / CGA firm",
+        "city": "GTA",
+        "profile": "https://www.linkedin.com/in/bajwa-cpa-381224199/",
+        "added": "2026-10-09",
+        "status": "pending"
+      },
+      {
+        "name": "Sim Singh Realtor",
+        "profession": "Realtor",
+        "city": "Etobicoke",
+        "profile": "https://www.linkedin.com/in/realtor-simsingh/",
+        "added": "2026-10-10",
+        "status": "pending"
+      },
+      {
+        "name": "Jagpreet Singh Benipal",
+        "profession": "Accountant",
+        "city": "GTA",
+        "profile": "https://www.linkedin.com/in/benipal-jagpreet/",
+        "added": "2026-10-10",
+        "status": "pending"
+      }
+    ]
   },
-  {
-   "name": "Prit Gandhi",
-   "profile": "https://www.linkedin.com/in/ACoAAEuXfDEBkRlOJ1rglwWMGxuhzkGfKidgaDU",
-   "date": "2026-10-07",
-   "why": "You started texting him (4:16 PM). Number already exchanged in LinkedIn chat.",
-   "via": "LinkedIn"
-  },
-  {
-   "name": "Cameron Alcott",
-   "profile": "https://www.linkedin.com/in/ACoAABuK9nEBPDLucbwWRcsUQ1xvxYK6194QKk4",
-   "headline": "Helping Canadians Build Wealth Through Financial Literacy | Coach | Entrepreneur",
-   "date": "2026-10-07",
-   "why": "You started texting him (4:17 PM). He had pitched you a financial-literacy presentation.",
-   "via": "LinkedIn"
-  },
-  {
-   "name": "Eben Raaj",
-   "headline": "",
-   "city": "",
-   "profile": "",
-   "date": "2026-10-08",
-   "why": "Asked what services you offer and how you two could work together"
-  },
-  {
-   "name": "Dhruv Satre",
-   "date": "2026-10-10",
-   "why": "You started texting him (Oct 10, 12:08 PM).",
-   "via": "LinkedIn"
-  },
-  {
-   "name": "Hezekiah Olakisan",
-   "date": "2026-10-10",
-   "why": "You started texting him (Oct 10, 12:05 PM). He runs his own insurance side business in Winnipeg.",
-   "via": "LinkedIn"
+  "prospects": [
+    {
+      "name": "Sarabjit Singh Ahuja",
+      "date": "2026-10-07",
+      "why": "Wanted a wealth/insurance side hustle. Just cleared his LLQP exams and is waiting for his license. He asked how your business is going (unanswered, 4:02 PM).",
+      "via": "LinkedIn",
+      "profile": "https://www.linkedin.com/in/ACoAABT7vnoB8BR1nT1s0Xa4z_ehGU3JbWF7_D8",
+      "headline": "AR Specialist"
+    },
+    {
+      "name": "Prit Gandhi",
+      "profile": "https://www.linkedin.com/in/ACoAAEuXfDEBkRlOJ1rglwWMGxuhzkGfKidgaDU",
+      "date": "2026-10-07",
+      "why": "You started texting him (4:16 PM). Number already exchanged in LinkedIn chat.",
+      "via": "LinkedIn"
+    },
+    {
+      "name": "Cameron Alcott",
+      "profile": "https://www.linkedin.com/in/ACoAABuK9nEBPDLucbwWRcsUQ1xvxYK6194QKk4",
+      "headline": "Helping Canadians Build Wealth Through Financial Literacy | Coach | Entrepreneur",
+      "date": "2026-10-07",
+      "why": "You started texting him (4:17 PM). He had pitched you a financial-literacy presentation.",
+      "via": "LinkedIn"
+    },
+    {
+      "name": "Eben Raaj",
+      "headline": "",
+      "city": "",
+      "profile": "",
+      "date": "2026-10-08",
+      "why": "Asked what services you offer and how you two could work together"
+    },
+    {
+      "name": "Dhruv Satre",
+      "date": "2026-10-10",
+      "why": "You started texting him (Oct 10, 12:08 PM).",
+      "via": "LinkedIn"
+    },
+    {
+      "name": "Hezekiah Olakisan",
+      "date": "2026-10-10",
+      "why": "You started texting him (Oct 10, 12:05 PM). He runs his own insurance side business in Winnipeg.",
+      "via": "LinkedIn"
+    }
+  ],
+  "learning": {
+    "lastRead": "2026-10-09T21:31:00-04:00",
+    "chatsStudied": 4,
+    "messagesStudied": 50,
+    "daysStudied": 2,
+    "playbookLines": 11,
+    "latest": "A short \"?\" nudge got Eben replying fast and setting up a phone call."
   }
- ],
- "learning": {
-  "lastRead": "2026-10-09T21:31:00-04:00",
-  "chatsStudied": 4,
-  "messagesStudied": 50,
-  "daysStudied": 2,
-  "playbookLines": 11,
-  "latest": "A short \"?\" nudge got Eben replying fast and setting up a phone call."
- }
 }
