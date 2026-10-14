@@ -43,7 +43,7 @@
   },
   "2026-10-14": {
    "textsSent": 2,
-   "peopleAdded": 0,
+   "peopleAdded": 8,
    "activeChats": 2,
    "contactsExchanged": 0,
    "emailsShared": 0,
@@ -108,6 +108,15 @@
     "emailsShared": 0,
     "meetingsFixed": 0,
     "requestsAccepted": 1
+   },
+   "2026-10-14": {
+    "peopleAdded": 2,
+    "textsSent": 0,
+    "activeChats": 0,
+    "contactsExchanged": 0,
+    "emailsShared": 0,
+    "meetingsFixed": 0,
+    "requestsAccepted": 0
    }
   },
   "contacts": [],
@@ -174,6 +183,22 @@
     "city": "Brampton",
     "profile": "https://www.linkedin.com/in/akshitarora61/",
     "added": "2026-10-13",
+    "status": "pending"
+   },
+   {
+    "name": "Tirath Gill",
+    "profession": "Self-employed, founder of PP Logistics Inc.",
+    "city": "GTA",
+    "profile": "https://www.linkedin.com/in/tirath-gill-a285081bb/",
+    "added": "2026-10-14",
+    "status": "pending"
+   },
+   {
+    "name": "Japinder Singh",
+    "profession": "Realtor",
+    "city": "Brampton",
+    "profile": "https://www.linkedin.com/in/japinder-singh-59610422b/",
+    "added": "2026-10-14",
     "status": "pending"
    }
   ]
