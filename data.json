@@ -33,7 +33,7 @@
       "textsSent": 5
     },
     "2026-10-13": {
-      "textsSent": 10,
+      "textsSent": 12,
       "peopleAdded": 8,
       "activeChats": 7,
       "contactsExchanged": 0,
@@ -212,6 +212,14 @@
       "date": "2026-10-10",
       "why": "You started texting him (Oct 10, 12:05 PM). He runs his own insurance side business in Winnipeg.",
       "via": "LinkedIn"
+    },
+    {
+      "name": "Ikram Patel",
+      "date": "2026-10-13",
+      "why": "Canada experience: struggling/surviving; IT career without STEM PR category feeling hard, worried about AI. Flagged after empathy + why question.",
+      "via": "LinkedIn",
+      "profile": "",
+      "headline": "Senior Data Engineer | Big Data | Hadoop | AWS | DWH"
     }
   ],
   "learning": {
