@@ -60,8 +60,8 @@
    "requestsAccepted": 2
   },
   "2026-10-16": {
-   "peopleAdded": 4,
-   "textsSent": 8,
+   "peopleAdded": 8,
+   "textsSent": 9,
    "activeChats": 3,
    "contactsExchanged": 0,
    "emailsShared": 0,
@@ -144,6 +144,15 @@
     "emailsShared": 0,
     "meetingsFixed": 0,
     "requestsAccepted": 1
+   },
+   "2026-10-16": {
+    "peopleAdded": 2,
+    "textsSent": 0,
+    "activeChats": 0,
+    "contactsExchanged": 0,
+    "emailsShared": 0,
+    "meetingsFixed": 0,
+    "requestsAccepted": 0
    }
   },
   "contacts": [],
@@ -243,6 +252,22 @@
     "profile": "https://www.linkedin.com/in/bhumika-patel-5a9570393/",
     "added": "2026-10-15",
     "status": "messaged"
+   },
+   {
+    "name": "Prakash Brar",
+    "profession": "Self-employed, President of Transport On Demand",
+    "city": "Brampton",
+    "profile": "https://www.linkedin.com/in/prakash-brar-019443204/",
+    "added": "2026-10-16",
+    "status": "pending"
+   },
+   {
+    "name": "Ikjot Gill",
+    "profession": "Real estate investing (multifamily) educator, self-employed",
+    "city": "GTA",
+    "profile": "https://www.linkedin.com/in/ikjot-gill-3267a1198/",
+    "added": "2026-10-16",
+    "status": "pending"
    }
   ]
  },
@@ -326,7 +351,7 @@
   {
    "name": "Jagjit Singh",
    "date": "2026-10-15",
-   "why": "You texted him Oct 7 early AM (outside bot hours). He asked how your business is doing — you take over.",
+   "why": "You texted him Oct 7 early AM (outside bot hours). He asked how your business is doing \u2014 you take over.",
    "via": "LinkedIn",
    "profile": "",
    "headline": "Manufacturing/Design Engineer (Mechanical)",
