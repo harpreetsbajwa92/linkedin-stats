@@ -1,5 +1,5 @@
 {
- "targetAdds": 10,
+ "targetAdds": 8,
  "days": {
   "2026-10-07": {
    "peopleAdded": 10,
@@ -89,7 +89,7 @@
   }
  ],
  "professionals": {
-  "targetAdds": 10,
+  "targetAdds": 2,
   "days": {
    "2026-10-07": {
     "peopleAdded": 2,
