@@ -214,6 +214,7 @@
     .seg-btn.active { background: var(--accent); color: #fff; }
     .pnav { width: 32px; height: 32px; border-radius: 9px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-muted); }
     .bar-col .d { white-space: nowrap; }
+    .bar-col em { font-style: normal; font-size: 0.55rem; color: var(--text-dim); }
 
   </style>
 </head>
@@ -280,9 +281,15 @@
     </section>
 
     <section class="screen" id="screen-trends">
+      <div class="seg" id="filterSegT">
+        <button class="seg-btn active" data-f="prospects">Main</button>
+        <button class="seg-btn" data-f="pros">Professionals</button>
+        <button class="seg-btn" data-f="combined">Combined</button>
+      </div>
       <div class="seg" id="trendSeg">
         <button class="seg-btn active" data-mode="week">Weekly</button>
         <button class="seg-btn" data-mode="month">Monthly</button>
+        <button class="seg-btn" data-mode="year">Yearly</button>
       </div>
       <div class="month-summary">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
@@ -291,30 +298,26 @@
           <button class="pnav" id="nextPeriod">›</button>
         </div>
         <div class="month-grid">
-          <div class="month-stat"><div class="n" id="pAdds">0</div><div class="l">Added</div></div>
+          <div class="month-stat"><div class="n" id="pAdds">0</div><div class="l">Adds</div></div>
           <div class="month-stat"><div class="n" id="pAccepted">0</div><div class="l">Accepted</div></div>
-          <div class="month-stat main-only"><div class="n" id="pTexts">0</div><div class="l">Texts</div></div>
-          <div class="month-stat main-only"><div class="n" id="pActive">0</div><div class="l">Active</div></div>
+          <div class="month-stat"><div class="n" id="pTexts">0</div><div class="l">Texts</div></div>
+          <div class="month-stat"><div class="n" id="pActive">0</div><div class="l">Active</div></div>
         </div>
         <div class="rate-row">
-          Accept rate: <strong id="pAcceptRate">—</strong>
-          <span class="main-only" style="display:inline">· Reply rate: <strong id="pReplyRate">—</strong></span>
+          Accept rate: <strong id="pAcceptRate">–</strong>
+          · Reply rate: <strong id="pReplyRate">–</strong>
           · Days logged: <strong id="pDays">0</strong>
+        </div>
+        <div class="rate-row" style="border-top:none;padding-top:4px;margin-top:4px;">
+          Days hit goal: <strong id="pHit">0</strong> · Streak: <strong id="pStreak">0 d</strong> (best <strong id="pBest">0 d</strong>)
         </div>
         <div class="rate-row" id="pProjection" style="border-top:none;padding-top:4px;margin-top:4px;"></div>
       </div>
-      <div class="chart main-only">
-        <h2 id="chartTitle1">Texts sent · last 12 weeks</h2>
-        <div class="bars" id="chartA"></div>
-      </div>
-      <div class="chart">
-        <h2 id="chartTitle2">People added · last 12 weeks</h2>
-        <div class="bars" id="chartB"></div>
-      </div>
-      <div class="chart main-only">
-        <h2 id="chartTitle3">Active chats · last 12 weeks</h2>
-        <div class="bars" id="chartC"></div>
-      </div>
+      <div class="chart"><h2 id="chartTitle1">Adds</h2><div class="bars" id="chartA"></div></div>
+      <div class="chart"><h2 id="chartTitle2">Requests accepted</h2><div class="bars" id="chartB"></div></div>
+      <div class="chart"><h2 id="chartTitle3">Texts sent</h2><div class="bars" id="chartC"></div></div>
+      <div class="chart"><h2 id="chartTitle4">Active chats</h2><div class="bars" id="chartD"></div></div>
+      <div class="form-card"><h2>All time</h2><p id="allTime" style="font-size:0.8rem;color:var(--text-muted);"></p></div>
     </section>
 
     <section class="screen" id="screen-history">
@@ -554,45 +557,57 @@
     return { adds, texts, active, contacts, emails, meetings, days };
   }
 
+  // ---- Trends (same reporting as the Instagram and Facebook Stats apps) ----
   let trendMode = "week";
   let periodOffset = 0; // 0 = current, -1 = previous ...
-
-  function startOfWeek(d) {
-    const x = new Date(d.getFullYear(), d.getMonth(), d.getDate());
-    const dow = (x.getDay() + 6) % 7; // Monday = 0
-    x.setDate(x.getDate() - dow);
-    return x;
+  let filt = "prospects"; // prospects (Main) | pros | combined; follows the Main/Professionals toggle
+  const tToday = () => new Intl.DateTimeFormat("en-CA", { timeZone: "America/Toronto" }).format(new Date());
+  const tD = (s) => new Date(s + "T12:00:00Z"), tF = (d) => d.toISOString().slice(0, 10);
+  const tAdd = (s, n) => { const d = tD(s); d.setUTCDate(d.getUTCDate() + n); return tF(d); };
+  const tNice = (iso) => tD(iso).toLocaleDateString(undefined, { month: "short", day: "numeric", timeZone: "UTC" });
+  const pct = (a, b) => (b ? Math.round((a / b) * 100) + "%" : "–");
+  const TK = ["adds", "accepted", "texts", "active"];
+  const tracksOf = (f) => (f === "combined" ? ["prospects", "pros"] : [f]);
+  const dsOf = (t) => (t === "pros" ? (data.professionals || { days: {} }) : data);
+  function rowT(t, iso) {
+    const v = getDay({ days: dsOf(t).days || {} }, iso);
+    return { adds: v.peopleAdded || 0, accepted: v.requestsAccepted || 0, texts: v.textsSent || 0, active: v.activeChats || 0 };
   }
-  function sumRange(from, to) {
-    const out = { adds: 0, accepted: 0, texts: 0, active: 0, contacts: 0, emails: 0, meetings: 0, days: 0 };
-    Object.keys(V().days).forEach((iso) => {
-      const d = parseISO(iso);
-      if (d < from || d > to) return;
-      const v = getDay(V(), iso);
-      out.adds += v.peopleAdded; out.accepted += (v.requestsAccepted || 0); out.texts += v.textsSent; out.active += v.activeChats;
-      out.contacts += v.contactsExchanged; out.emails += (v.emailsShared || 0); out.meetings += (v.meetingsFixed || 0);
-      out.days += 1;
+  function rowF(f, iso) { return tracksOf(f).reduce((r, t) => { const x = rowT(t, iso); TK.forEach((k) => (r[k] += x[k])); return r; }, { adds: 0, accepted: 0, texts: 0, active: 0 }); }
+  const goalOf = (f) => tracksOf(f).reduce((s, t) => s + (dsOf(t).targetAdds != null ? dsOf(t).targetAdds : (data.targetAdds || 10)), 0);
+  const allDays = (f) => [...new Set(tracksOf(f).flatMap((t) => Object.keys(dsOf(t).days || {})))].sort();
+  function prospectsIn(f, from, to) {
+    const hid = gpHidden();
+    return tracksOf(f).reduce((n, t) => n + (dsOf(t).prospects || []).filter((x) => !hid.includes(gpKey(x)) && (!x.date || (x.date >= from && x.date <= to))).length, 0);
+  }
+  function tStartOfWeek(s) { const dow = (tD(s).getUTCDay() + 6) % 7; return tAdd(s, -dow); }
+  function periodRange(mode, offset) {
+    const td = tToday();
+    if (mode === "week") { const s = tAdd(tStartOfWeek(td), offset * 7); return { from: s, to: tAdd(s, 6) }; }
+    const [y, m] = td.split("-").map(Number);
+    if (mode === "month") { const a = new Date(Date.UTC(y, m - 1 + offset, 1)); return { from: tF(a), to: tF(new Date(Date.UTC(a.getUTCFullYear(), a.getUTCMonth() + 1, 0))) }; }
+    return { from: (y + offset) + "-01-01", to: (y + offset) + "-12-31" };
+  }
+  function periodLabel(mode, r, offset) {
+    if (mode === "week") { const base = tNice(r.from) + " – " + tNice(r.to); return offset === 0 ? "This week · " + base : base; }
+    if (mode === "month") return tD(r.from).toLocaleDateString(undefined, { month: "long", year: "numeric", timeZone: "UTC" });
+    return r.from.slice(0, 4);
+  }
+  function sumRange(from, to, f) {
+    f = f || filt;
+    const out = { adds: 0, accepted: 0, texts: 0, active: 0, days: 0, hit: 0 }, g = goalOf(f);
+    allDays(f).forEach((iso) => {
+      if (iso < from || iso > to) return;
+      const v = rowF(f, iso); TK.forEach((k) => (out[k] += v[k])); out.days++; if (g && v.adds >= g) out.hit++;
     });
     return out;
   }
-  function periodRange(mode, offset) {
-    const now = new Date();
-    if (mode === "week") {
-      const from = startOfWeek(now); from.setDate(from.getDate() + offset * 7);
-      const to = new Date(from); to.setDate(from.getDate() + 6);
-      return { from, to };
-    }
-    const from = new Date(now.getFullYear(), now.getMonth() + offset, 1);
-    const to = new Date(from.getFullYear(), from.getMonth() + 1, 0);
-    return { from, to };
-  }
-  function periodLabel(mode, r, offset) {
-    if (mode === "week") {
-      const opt = { month: "short", day: "numeric" };
-      const base = r.from.toLocaleDateString(undefined, opt) + " – " + r.to.toLocaleDateString(undefined, opt);
-      return offset === 0 ? "This week · " + base : base;
-    }
-    return r.from.toLocaleDateString(undefined, { month: "long", year: "numeric" });
+  function streaks() {
+    const g = goalOf(filt), td = tToday(), days = allDays(filt); let cur = 0, best = 0, run = 0;
+    if (days.length && g) { let d = days[0]; while (d <= td) { if (rowF(filt, d).adds >= g) { run++; best = Math.max(best, run); } else run = 0; d = tAdd(d, 1); } }
+    let d = td; if (g && rowF(filt, d).adds < g) d = tAdd(d, -1);
+    while (g && rowF(filt, d).adds >= g && d >= "2000") { cur++; d = tAdd(d, -1); }
+    return { cur, best };
   }
   function drawBars(containerId, points) {
     const el = $(containerId);
@@ -600,48 +615,51 @@
     const max = Math.max(1, ...points.map((p) => p.v));
     points.forEach((p) => {
       const col = document.createElement("div"); col.className = "bar-col";
+      const em = document.createElement("em"); em.textContent = p.v || "";
       const bar = document.createElement("div"); bar.className = "bar";
-      bar.style.height = Math.max(2, Math.round((p.v / max) * 100)) + "%";
+      bar.style.height = Math.max(2, Math.round((p.v / max) * 80)) + "%";
       bar.title = p.label + ": " + p.v;
       const lab = document.createElement("div"); lab.className = "d"; lab.textContent = p.short;
-      col.appendChild(bar); col.appendChild(lab); el.appendChild(col);
+      col.appendChild(em); col.appendChild(bar); col.appendChild(lab); el.appendChild(col);
     });
   }
-  function seriesFor(mode, field) {
-    const pts = [];
-    for (let i = 11; i >= 0; i--) {
-      const r = periodRange(mode, periodOffset - i);
-      const s = sumRange(r.from, r.to);
-      const short = mode === "week"
-        ? (r.from.getMonth() + 1) + "/" + r.from.getDate()
-        : r.from.toLocaleDateString(undefined, { month: "short" });
-      pts.push({ v: s[field], label: periodLabel(mode, r, periodOffset - i), short });
+  function seriesFor(field) {
+    const n = trendMode === "year" ? 3 : 12, pts = [];
+    for (let i = n - 1; i >= 0; i--) {
+      const off = periodOffset - i, r = periodRange(trendMode, off), s = sumRange(r.from, r.to);
+      const short = trendMode === "week" ? (+r.from.slice(5, 7)) + "/" + (+r.from.slice(8)) : trendMode === "month" ? tD(r.from).toLocaleDateString(undefined, { month: "short", timeZone: "UTC" }) : r.from.slice(0, 4);
+      pts.push({ v: s[field], label: periodLabel(trendMode, r, off), short });
     }
     return pts;
   }
 
   function renderTrends() {
-    const r = periodRange(trendMode, periodOffset);
-    const s = sumRange(r.from, r.to);
+    document.querySelectorAll("#filterSegT .seg-btn").forEach((b) => b.classList.toggle("active", b.dataset.f === filt));
+    const r = periodRange(trendMode, periodOffset), s = sumRange(r.from, r.to), g = goalOf(filt), st = streaks();
     $("periodTitle").textContent = periodLabel(trendMode, r, periodOffset);
     $("pAdds").textContent = s.adds; $("pAccepted").textContent = s.accepted; $("pTexts").textContent = s.texts; $("pActive").textContent = s.active;
     $("pDays").textContent = s.days;
-    $("pAcceptRate").textContent = s.adds > 0 ? Math.round((s.accepted / s.adds) * 100) + "%" : "—";
-    $("pReplyRate").textContent = s.texts > 0 ? Math.round((s.active / s.texts) * 100) + "%" : "—";
+    $("pAcceptRate").textContent = pct(s.accepted, s.adds);
+    $("pReplyRate").textContent = pct(s.active, s.texts);
+    $("pHit").textContent = s.hit; $("pStreak").textContent = st.cur + " d"; $("pBest").textContent = st.best + " d";
+    const periodDays = Math.round((tD(r.to) - tD(r.from)) / 86400000) + 1;
+    $("pProjection").textContent = "Goal " + g + " adds/day × " + periodDays + " days = " + (g * periodDays) + " · Actual: " + s.adds;
+    const unit = trendMode === "week" ? "last 12 weeks" : trendMode === "month" ? "last 12 months" : "last 3 years";
+    $("chartTitle1").textContent = "Adds · " + unit;
+    $("chartTitle2").textContent = "Requests accepted · " + unit;
+    $("chartTitle3").textContent = "Texts sent · " + unit;
+    $("chartTitle4").textContent = "Active chats · " + unit;
+    drawBars("chartA", seriesFor("adds"));
+    drawBars("chartB", seriesFor("accepted"));
+    drawBars("chartC", seriesFor("texts"));
+    drawBars("chartD", seriesFor("active"));
+    const a = sumRange("0000-01-01", "9999-12-31");
+    $("allTime").textContent = a.adds + " adds · " + a.accepted + " accepted (" + pct(a.accepted, a.adds) + ") · " + a.texts + " texts · " + a.active + " active chats · " + prospectsIn(filt, "0000-01-01", "9999-12-31") + " good prospects";
     const target = V().targetAdds || 10;
-    const periodDays = Math.round((r.to - r.from) / 86400000) + 1;
-    $("pProjection").textContent = "Target " + target + " adds/day × " + periodDays + " days = " + (target * periodDays) + " · Actual: " + s.adds;
-    const unit = trendMode === "week" ? "last 12 weeks" : "last 12 months";
-    $("chartTitle1").textContent = "Texts sent · " + unit;
-    $("chartTitle2").textContent = "People added · " + unit;
-    $("chartTitle3").textContent = "Active chats · " + unit;
-    drawBars("chartA", seriesFor(trendMode, "texts"));
-    drawBars("chartB", seriesFor(trendMode, "adds"));
-    drawBars("chartC", seriesFor(trendMode, "active"));
     const proj = $("projection");
     if (proj) {
-      const mr = periodRange("month", 0); const ms = sumRange(mr.from, mr.to);
-      const dim = mr.to.getDate();
+      const mr = periodRange("month", 0); const ms = sumRange(mr.from, mr.to, track);
+      const dim = +mr.to.slice(8);
       proj.textContent = "At " + target + " adds/day × " + dim + " days ≈ " + (target * dim) + " adds this month. Logged so far: " + ms.adds + ".";
     }
     const tIn = $("inTarget"); if (tIn) tIn.value = target;
@@ -687,7 +705,7 @@
     b.addEventListener("click", () => {
       document.querySelectorAll("#trackSeg .seg-btn").forEach((x) => x.classList.remove("active"));
       b.classList.add("active");
-      track = b.dataset.track;
+      track = b.dataset.track; filt = track;
       document.body.classList.toggle("pros", track === "pros");
       document.querySelector(".brand .sub").textContent = track === "pros" ? "Professionals connected · accountants, mortgage & real estate agents" : "Harpreet · prospecting KPIs";
       renderToday(); renderContacts(); renderProspects(); renderLearning(); renderPros(); renderTrends(); renderHistory();
@@ -700,6 +718,7 @@
       trendMode = b.dataset.mode; periodOffset = 0; renderTrends();
     });
   });
+  document.querySelectorAll("#filterSegT .seg-btn").forEach((b) => b.addEventListener("click", () => { filt = b.dataset.f; renderTrends(); }));
   $("prevPeriod").addEventListener("click", () => { periodOffset -= 1; renderTrends(); });
   $("nextPeriod").addEventListener("click", () => { if (periodOffset < 0) { periodOffset += 1; renderTrends(); } });
   document.querySelectorAll(".nav button").forEach((b) => {
