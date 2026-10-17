@@ -67,6 +67,15 @@
    "emailsShared": 0,
    "meetingsFixed": 0,
    "requestsAccepted": 2
+  },
+  "2026-10-17": {
+   "peopleAdded": 7,
+   "textsSent": 0,
+   "activeChats": 0,
+   "contactsExchanged": 0,
+   "emailsShared": 0,
+   "meetingsFixed": 0,
+   "requestsAccepted": 0
   }
  },
  "contacts": [
@@ -146,6 +155,15 @@
     "requestsAccepted": 1
    },
    "2026-10-16": {
+    "peopleAdded": 2,
+    "textsSent": 0,
+    "activeChats": 0,
+    "contactsExchanged": 0,
+    "emailsShared": 0,
+    "meetingsFixed": 0,
+    "requestsAccepted": 0
+   },
+   "2026-10-17": {
     "peopleAdded": 2,
     "textsSent": 0,
     "activeChats": 0,
@@ -267,6 +285,22 @@
     "city": "GTA",
     "profile": "https://www.linkedin.com/in/ikjot-gill-3267a1198/",
     "added": "2026-10-16",
+    "status": "pending"
+   },
+   {
+    "name": "Neena Parekh, CPA",
+    "profession": "CPA, Manager Accounting at City of Brampton",
+    "city": "Mississauga",
+    "profile": "https://www.linkedin.com/in/neena-parekh-cpa-91a53117/",
+    "added": "2026-10-17",
+    "status": "pending"
+   },
+   {
+    "name": "Andy Dudeja",
+    "profession": "Self-employed realtor and mortgage agent (A K Empire Brokerage)",
+    "city": "Brampton",
+    "profile": "https://www.linkedin.com/in/andy-dudeja-545026b3/",
+    "added": "2026-10-17",
     "status": "pending"
    }
   ],
