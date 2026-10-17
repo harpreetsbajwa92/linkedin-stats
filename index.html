@@ -247,7 +247,7 @@
       <div class="kpi-grid">
         <div class="kpi adds"><div class="label">People added</div><div class="value" id="kpiAdds">0</div><div class="hint">Requests sent</div></div>
         <div class="kpi accepted"><div class="label">Requests accepted</div><div class="value" id="kpiAccepted">0</div><div class="hint" id="kpiAcceptRate">New connections</div></div>
-        <div class="kpi yourturn pros-only"><div class="label">Ready for you to chat</div><div class="value" id="kpiYourTurn">0</div><div class="hint">Accepted and got "Hi, how are you?", all on the list below</div></div>
+        <div class="kpi yourturn pros-only"><div class="label">Ready for you to chat</div><div class="value" id="kpiYourTurn">0</div><div class="hint">Accepted and waiting on you</div></div>
         <div class="kpi texts main-only"><div class="label">Texts sent</div><div class="value" id="kpiTexts">0</div><div class="hint">Outbound messages</div></div>
         <div class="kpi active main-only"><div class="label">Active chats</div><div class="value" id="kpiActive">0</div><div class="hint">Reciprocal replies</div></div>
         <div class="kpi gp" style="grid-column:1 / -1;"><div class="label">Good prospects waiting for you</div><div class="value" id="kpiGP">0</div><div class="hint">People handed over for you to chat with</div></div>
@@ -257,11 +257,11 @@
           <h2 style="margin:0;">Good prospects</h2>
           <span class="cx-count gp-count" id="gpCount">0</span>
         </div>
-        <p style="font-size:0.75rem;color:var(--text-dim);margin:4px 0 12px;">People who look promising for you to take over. Never cleared.</p>
+        <p style="font-size:0.75rem;color:var(--text-dim);margin:4px 0 12px;">Tap Open chat to jump straight into the LinkedIn conversation.</p>
         <div id="gpNote" style="display:none;font-size:0.75rem;color:#fbbf24;background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.3);border-radius:10px;padding:8px 10px;margin-bottom:10px;"></div>
         <div id="gpList"></div>
       </div>
-      <div class="form-card" id="proCard" style="display:none;">
+      <div class="form-card" id="proCard" style="display:none !important;">
         <div style="display:flex;align-items:center;justify-content:space-between;">
           <h2 style="margin:0;">Professionals added</h2>
           <span class="cx-count" id="proCount">0</span>
@@ -510,7 +510,7 @@
   }
   function renderPros() {
     const card = $("proCard");
-    card.style.display = track === "pros" ? "" : "none";
+    card.style.display = "none";
     if (track !== "pros") return;
     const people = ((data.professionals || {}).people || []).slice().sort((a, b) => String(b.messaged || b.added || "").localeCompare(String(a.messaged || a.added || "")));
     $("proCount").textContent = people.length;
