@@ -182,7 +182,7 @@
     "requestsAccepted": 0
    },
    "2026-10-18": {
-    "peopleAdded": 1,
+    "peopleAdded": 2,
     "textsSent": 0,
     "activeChats": 0,
     "contactsExchanged": 0,
@@ -326,6 +326,14 @@
     "profession": "Self-employed realtor (HomeLife/Miracle Realty, RE/MAX Central)",
     "city": "GTA",
     "profile": "https://www.linkedin.com/in/satinder-kaur-611782144/",
+    "added": "2026-10-18",
+    "status": "pending"
+   },
+   {
+    "name": "Keta Shah",
+    "profession": "Accountant, Legacy Supply Chain",
+    "city": "Brampton",
+    "profile": "https://www.linkedin.com/in/keta-shah-00769a160/",
     "added": "2026-10-18",
     "status": "pending"
    }
