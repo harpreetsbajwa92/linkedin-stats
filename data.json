@@ -437,7 +437,7 @@
     {
       "name": "Jagjit Singh",
       "date": "2026-10-15",
-      "why": "You texted him Oct 7 early AM (outside bot hours). He asked how your business is doing \u2014 you take over.",
+      "why": "You texted him Oct 7 early AM (outside bot hours). He asked how your business is doing — you take over.",
       "via": "LinkedIn",
       "profile": "",
       "headline": "Manufacturing/Design Engineer (Mechanical)",
@@ -451,6 +451,15 @@
       "profile": "",
       "headline": "Freelance branding and strategy",
       "chat": "https://www.linkedin.com/messaging/thread/2-OTEwOTUxMTQtMGUzZS00ZmIyLTgxN2MtNWU0NGNhZTRjZThkXzAxMg==/"
+    },
+    {
+      "name": "Obaid Shaikh",
+      "date": "2026-10-19",
+      "why": "Engineer (application engineering + technical sales), said Canada is 'so far, so good'. Today he asked what you do, so you take over.",
+      "via": "LinkedIn",
+      "profile": "",
+      "headline": "PMP, application engineering / technical sales",
+      "chat": "https://www.linkedin.com/messaging/thread/2-MGM2MzU5ZmEtY2FkYi00NGRkLTk5OWItNmVjZDM3NGVhZGMwXzAxMg==/"
     }
   ],
   "learning": {
@@ -459,6 +468,6 @@
     "messagesStudied": 224,
     "daysStudied": 8,
     "playbookLines": 24,
-    "latest": "He now uses one set coffee pitch for GTA prospects (Nestl\u00e9 job, built his business part time, looking for ambitious people), and when someone says no he agrees, relates, and leaves the door open."
+    "latest": "He now uses one set coffee pitch for GTA prospects (Nestlé job, built his business part time, looking for ambitious people), and when someone says no he agrees, relates, and leaves the door open."
   }
 }
