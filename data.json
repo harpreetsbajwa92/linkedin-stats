@@ -87,7 +87,7 @@
    "requestsAccepted": 1
   },
   "2026-10-19": {
-   "peopleAdded": 7,
+   "peopleAdded": 8,
    "textsSent": 1,
    "activeChats": 1,
    "contactsExchanged": 0,
@@ -200,7 +200,7 @@
     "requestsAccepted": 0
    },
    "2026-10-19": {
-    "peopleAdded": 1,
+    "peopleAdded": 2,
     "textsSent": 0,
     "activeChats": 0,
     "contactsExchanged": 0,
@@ -370,6 +370,15 @@
     "profile": "https://www.linkedin.com/in/ranbirdhanoa/",
     "added": "2026-10-19",
     "status": "pending"
+   },
+   {
+    "name": "Amandeep Kaur",
+    "profession": "Tax Manager at RSM Canada (works at a company)",
+    "industry": "tax",
+    "city": "Toronto",
+    "profile": "https://www.linkedin.com/in/amandeep-kaur-94529476/",
+    "added": "2026-10-19",
+    "status": "pending"
    }
   ],
   "prospects": [
@@ -455,7 +464,7 @@
   {
    "name": "Jagjit Singh",
    "date": "2026-10-15",
-   "why": "You texted him Oct 7 early AM (outside bot hours). He asked how your business is doing \u2014 you take over.",
+   "why": "You texted him Oct 7 early AM (outside bot hours). He asked how your business is doing — you take over.",
    "via": "LinkedIn",
    "profile": "",
    "headline": "Manufacturing/Design Engineer (Mechanical)",
@@ -486,6 +495,6 @@
   "messagesStudied": 224,
   "daysStudied": 8,
   "playbookLines": 24,
-  "latest": "He now uses one set coffee pitch for GTA prospects (Nestl\u00e9 job, built his business part time, looking for ambitious people), and when someone says no he agrees, relates, and leaves the door open."
+  "latest": "He now uses one set coffee pitch for GTA prospects (Nestlé job, built his business part time, looking for ambitious people), and when someone says no he agrees, relates, and leaves the door open."
  }
 }
