@@ -96,7 +96,7 @@
    "requestsAccepted": 0
   },
   "2026-10-20": {
-   "peopleAdded": 5,
+   "peopleAdded": 8,
    "textsSent": 6,
    "activeChats": 0,
    "contactsExchanged": 0,
@@ -218,7 +218,7 @@
     "requestsAccepted": 0
    },
    "2026-10-20": {
-    "peopleAdded": 0,
+    "peopleAdded": 2,
     "textsSent": 0,
     "activeChats": 0,
     "contactsExchanged": 0,
@@ -396,6 +396,24 @@
     "city": "Toronto",
     "profile": "https://www.linkedin.com/in/amandeep-kaur-94529476/",
     "added": "2026-10-19",
+    "status": "pending"
+   },
+   {
+    "name": "Manmeet Singh",
+    "profession": "Tax Preparer (freelance, self-employed)",
+    "industry": "tax",
+    "city": "Brampton",
+    "profile": "https://www.linkedin.com/in/manmeet-singh-8478153b0/",
+    "added": "2026-10-20",
+    "status": "pending"
+   },
+   {
+    "name": "Sukhwinder Singh",
+    "profession": "Tax Preparer at Paragon Accounting & Financial Services (works at a company)",
+    "industry": "tax",
+    "city": "Brampton",
+    "profile": "https://www.linkedin.com/in/sukhwinder-singh-a4a34a371/",
+    "added": "2026-10-20",
     "status": "pending"
    }
   ],
