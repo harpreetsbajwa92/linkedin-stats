@@ -103,6 +103,15 @@
    "emailsShared": 0,
    "meetingsFixed": 0,
    "requestsAccepted": 0
+  },
+  "2026-10-21": {
+   "peopleAdded": 5,
+   "textsSent": 2,
+   "activeChats": 0,
+   "contactsExchanged": 0,
+   "emailsShared": 0,
+   "meetingsFixed": 0,
+   "requestsAccepted": 0
   }
  },
  "contacts": [
@@ -414,6 +423,24 @@
     "city": "Brampton",
     "profile": "https://www.linkedin.com/in/sukhwinder-singh-a4a34a371/",
     "added": "2026-10-20",
+    "status": "pending"
+   },
+   {
+    "name": "Maninder Pal Singh",
+    "profession": "RCIC immigration consultant, Reform Immigration Consultancy Inc. (likely own firm)",
+    "industry": "immigration",
+    "city": "Mississauga",
+    "profile": "https://www.linkedin.com/in/maninder-pal-singh-873b30228/",
+    "added": "2026-10-21",
+    "status": "pending"
+   },
+   {
+    "name": "Angad Singh",
+    "profession": "Lawyer (Barrister & Solicitor), own practice The Legal Pillars P.C.",
+    "industry": "law",
+    "city": "Brampton",
+    "profile": "https://www.linkedin.com/in/angad-singh-916981207/",
+    "added": "2026-10-21",
     "status": "pending"
    }
   ],
