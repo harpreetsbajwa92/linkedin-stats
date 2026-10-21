@@ -106,12 +106,12 @@
     },
     "2026-10-21": {
       "peopleAdded": 8,
-      "textsSent": 3,
+      "textsSent": 4,
       "activeChats": 1,
       "contactsExchanged": 0,
       "emailsShared": 0,
       "meetingsFixed": 0,
-      "requestsAccepted": 0
+      "requestsAccepted": 1
     }
   },
   "contacts": [
@@ -444,7 +444,7 @@
         "city": "Brampton",
         "profile": "https://www.linkedin.com/in/angad-singh-916981207/",
         "added": "2026-10-21",
-        "status": "pending"
+        "status": "chatting"
       }
     ],
     "prospects": [
