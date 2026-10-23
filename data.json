@@ -124,7 +124,7 @@
     },
     "2026-10-23": {
       "peopleAdded": 8,
-      "textsSent": 7,
+      "textsSent": 8,
       "activeChats": 1,
       "contactsExchanged": 0,
       "emailsShared": 0,
@@ -614,6 +614,15 @@
       "profile": "",
       "headline": "PMP, application engineering / technical sales",
       "chat": "https://www.linkedin.com/messaging/thread/2-MGM2MzU5ZmEtY2FkYi00NGRkLTk5OWItNmVjZDM3NGVhZGMwXzAxMg==/"
+    },
+    {
+      "name": "Jay Kaushal",
+      "date": "2026-10-23",
+      "why": "Data analyst in GenAI/LLM, long friendly chat since Oct 7. Said Canada has been amazing; I shared your side-hustle story and asked if he's thought about building something on the side.",
+      "via": "LinkedIn",
+      "profile": "",
+      "headline": "Data Analyst (LLM, GenAI, ML) at OTSI",
+      "chat": "https://www.linkedin.com/messaging/thread/2-NTRhZWZlOWItNjkyNy00NTVkLTgwM2MtNzg4NmJjMmE3ZDIyXzAxMA==/"
     }
   ],
   "learning": {
