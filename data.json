@@ -157,6 +157,15 @@
    "emailsShared": 0,
    "meetingsFixed": 0,
    "requestsAccepted": 1
+  },
+  "2026-10-28": {
+   "peopleAdded": 0,
+   "textsSent": 8,
+   "activeChats": 5,
+   "contactsExchanged": 0,
+   "emailsShared": 0,
+   "meetingsFixed": 0,
+   "requestsAccepted": 1
   }
  },
  "contacts": [
@@ -297,6 +306,9 @@
    },
    "2026-10-26": {
     "peopleAdded": 2
+   },
+   "2026-10-28": {
+    "accepted": 2
    }
   },
   "contacts": [
@@ -370,7 +382,8 @@
     "city": "Brampton",
     "profile": "https://www.linkedin.com/in/akshitarora61/",
     "added": "2026-10-13",
-    "status": "pending"
+    "status": "chatting",
+    "chat": "https://www.linkedin.com/messaging/thread/2-M2MzMGMwNGMtZmEzZS00NTBjLTkzMWYtOTg0NzcyMjdjNmEzXzEwMA==/"
    },
    {
     "name": "Tirath Gill",
@@ -468,7 +481,8 @@
     "city": "Toronto",
     "profile": "https://www.linkedin.com/in/amandeep-kaur-94529476/",
     "added": "2026-10-19",
-    "status": "pending"
+    "status": "chatting",
+    "chat": "https://www.linkedin.com/messaging/thread/2-OWM2MDQ0NjAtN2M4OC00OWRmLWJhMDMtOTJhYjYxNDVjMTQ0XzEwMA==/"
    },
    {
     "name": "Manmeet Singh",
@@ -672,7 +686,7 @@
   {
    "name": "Jagjit Singh",
    "date": "2026-10-15",
-   "why": "You texted him Oct 7 early AM (outside bot hours). He asked how your business is doing \u2014 you take over.",
+   "why": "You texted him Oct 7 early AM (outside bot hours). He asked how your business is doing — you take over.",
    "via": "LinkedIn",
    "profile": "",
    "headline": "Manufacturing/Design Engineer (Mechanical)",
