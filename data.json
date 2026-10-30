@@ -175,6 +175,15 @@
       "emailsShared": 0,
       "meetingsFixed": 0,
       "requestsAccepted": 0
+    },
+    "2026-10-30": {
+      "peopleAdded": 0,
+      "textsSent": 3,
+      "activeChats": 3,
+      "contactsExchanged": 0,
+      "emailsShared": 0,
+      "meetingsFixed": 0,
+      "requestsAccepted": 0
     }
   },
   "contacts": [
@@ -640,6 +649,16 @@
         "profile": "https://www.linkedin.com/in/chanpreet-singh-5261a1262/",
         "added": "2026-10-29",
         "status": "pending"
+      },
+      {
+        "name": "Ankit Bane",
+        "profession": "Insurance Advisor",
+        "industry": "insurance",
+        "city": "",
+        "profile": "",
+        "added": "2025-01-08",
+        "status": "chatting",
+        "chat": "https://www.linkedin.com/messaging/thread/2-MGU4YTUxZjEtZWNjZC00OGNmLTljYjQtNzk3YTFkZDQ0YWJiXzAxMA==/"
       }
     ],
     "prospects": [
