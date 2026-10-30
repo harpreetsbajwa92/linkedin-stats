@@ -178,7 +178,7 @@
     },
     "2026-10-30": {
       "peopleAdded": 0,
-      "textsSent": 3,
+      "textsSent": 5,
       "activeChats": 3,
       "contactsExchanged": 0,
       "emailsShared": 0,
@@ -745,7 +745,7 @@
     {
       "name": "Jagjit Singh",
       "date": "2026-10-15",
-      "why": "You texted him Oct 7 early AM (outside bot hours). He asked how your business is doing — you take over.",
+      "why": "You texted him Oct 7 early AM (outside bot hours). He asked how your business is doing \u2014 you take over.",
       "via": "LinkedIn",
       "profile": "",
       "headline": "Manufacturing/Design Engineer (Mechanical)",
