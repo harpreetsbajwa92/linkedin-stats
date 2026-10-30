@@ -177,13 +177,13 @@
       "requestsAccepted": 0
     },
     "2026-10-30": {
-      "peopleAdded": 0,
-      "textsSent": 6,
+      "peopleAdded": 7,
+      "textsSent": 8,
       "activeChats": 4,
       "contactsExchanged": 0,
       "emailsShared": 0,
       "meetingsFixed": 0,
-      "requestsAccepted": 0
+      "requestsAccepted": 1
     }
   },
   "contacts": [
@@ -331,6 +331,10 @@
       },
       "2026-10-29": {
         "peopleAdded": 1
+      },
+      "2026-10-30": {
+        "peopleAdded": 2,
+        "accepted": 1
       }
     },
     "contacts": [
@@ -630,7 +634,9 @@
         "city": "Brampton",
         "profile": "https://www.linkedin.com/in/harshdeep-grewal-b5b53b332/",
         "added": "2026-10-28",
-        "status": "pending"
+        "status": "chatting",
+        "accepted": "2026-10-29",
+        "chat": "https://www.linkedin.com/messaging/thread/2-YzgxZGJlNDMtZjBhNS00NTRhLWFlNTEtNDkxZjY4YzhmMTBkXzEwMA==/"
       },
       {
         "name": "Sagar Sharma, CPA, CA",
@@ -659,6 +665,24 @@
         "added": "2025-01-08",
         "status": "chatting",
         "chat": "https://www.linkedin.com/messaging/thread/2-MGU4YTUxZjEtZWNjZC00OGNmLTljYjQtNzk3YTFkZDQ0YWJiXzAxMA==/"
+      },
+      {
+        "name": "Gurpreet Singh",
+        "profession": "Owner/Manager, SARJAS Transport (own business, transportation/logistics)",
+        "industry": "business",
+        "city": "Brampton",
+        "profile": "https://www.linkedin.com/in/gurpreet-singh-09420671/",
+        "added": "2026-10-30",
+        "status": "pending"
+      },
+      {
+        "name": "Chhavi Marahar",
+        "profession": "Barrister & Solicitor, Marahar Law Prof. Corp. (own practice)",
+        "industry": "law",
+        "city": "Brampton",
+        "profile": "https://www.linkedin.com/in/chhavi-marahar-019411169/",
+        "added": "2026-10-30",
+        "status": "pending"
       }
     ],
     "prospects": [
@@ -745,7 +769,7 @@
     {
       "name": "Jagjit Singh",
       "date": "2026-10-15",
-      "why": "You texted him Oct 7 early AM (outside bot hours). He asked how your business is doing \u2014 you take over.",
+      "why": "You texted him Oct 7 early AM (outside bot hours). He asked how your business is doing — you take over.",
       "via": "LinkedIn",
       "profile": "",
       "headline": "Manufacturing/Design Engineer (Mechanical)",
