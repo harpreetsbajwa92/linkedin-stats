@@ -214,8 +214,8 @@
     },
     "2026-11-03": {
       "peopleAdded": 10,
-      "textsSent": 11,
-      "activeChats": 1,
+      "textsSent": 13,
+      "activeChats": 3,
       "contactsExchanged": 0,
       "emailsShared": 0,
       "meetingsFixed": 0,
@@ -890,7 +890,7 @@
     {
       "name": "Jagjit Singh",
       "date": "2026-10-15",
-      "why": "You texted him Oct 7 early AM (outside bot hours). He asked how your business is doing — you take over.",
+      "why": "You texted him Oct 7 early AM (outside bot hours). He asked how your business is doing \u2014 you take over.",
       "via": "LinkedIn",
       "profile": "",
       "headline": "Manufacturing/Design Engineer (Mechanical)",
@@ -931,6 +931,15 @@
       "profile": "",
       "headline": "AI and digital transformation",
       "chat": "https://www.linkedin.com/messaging/thread/2-ZGM4NDk0NTktODU4Ny00MjMwLWFlYTEtMjZjY2ZhMTFlNjI5XzAxMA==/"
+    },
+    {
+      "name": "Ashli Ben",
+      "date": "2026-11-03",
+      "why": "Operations/data analytics background (sales, admin, 2 yrs software dev), doing an analytics course. Said she's struggling to get a job; I empathized and asked what's been the hardest part.",
+      "via": "LinkedIn",
+      "profile": "",
+      "headline": "Operations & Software Professional | Data Analytics",
+      "chat": "https://www.linkedin.com/messaging/thread/2-N2YxMDdiMDItMjZkMS00MjFmLWFhODUtYjc4ZGU2Y2IzNTkwXzEwMA==/"
     }
   ],
   "learning": {
