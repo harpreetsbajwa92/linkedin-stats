@@ -787,7 +787,7 @@
         "city": "Brampton",
         "profile": "https://www.linkedin.com/in/amanpreet-kaur-3696b81a0/",
         "added": "2026-11-01",
-        "status": "chatting",
+        "status": "messaged",
         "accepted": "2026-11-01",
         "chat": "https://www.linkedin.com/messaging/thread/2-MWFiOGViMmEtZmIwYi00NzEzLTkzMzYtZWVmMTBiYTBjMjYzXzEwMA==/"
       },
@@ -897,12 +897,12 @@
       {
         "name": "Amanpreet Kaur",
         "date": "2026-11-06",
-        "why": "Own practice, asked if open to collaborating",
+        "why": "Own practice, asked if open to collaborating; she declined 4:34 PM (spouse of a WFG SMD, already in the business)",
         "via": "LinkedIn",
         "profile": "https://www.linkedin.com/in/amanpreet-kaur-3696b81a0/",
         "headline": "RCIC, Founder of CRTC Immigration Services Inc.",
         "chat": "https://www.linkedin.com/messaging/thread/2-MWFiOGViMmEtZmIwYi00NzEzLTkzMzYtZWVmMTBiYTBjMjYzXzEwMA==/",
-        "status": "waiting"
+        "status": "messaged"
       }
     ]
   },
