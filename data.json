@@ -231,8 +231,8 @@
       "requestsAccepted": 2
     },
     "2026-11-06": {
-      "peopleAdded": 0,
-      "textsSent": 3,
+      "peopleAdded": 2,
+      "textsSent": 10,
       "activeChats": 3,
       "contactsExchanged": 0,
       "emailsShared": 0,
@@ -404,6 +404,15 @@
       },
       "2026-11-04": {
         "peopleAdded": 2
+      },
+      "2026-11-06": {
+        "peopleAdded": 2,
+        "textsSent": 0,
+        "activeChats": 0,
+        "contactsExchanged": 0,
+        "emailsShared": 0,
+        "meetingsFixed": 0,
+        "requestsAccepted": 0
       }
     },
     "contacts": [
@@ -845,6 +854,24 @@
         "profile": "https://www.linkedin.com/in/bikramjeet-singh-aulakh-077244a0/",
         "added": "2026-11-04",
         "status": "pending"
+      },
+      {
+        "name": "CJ Patel",
+        "profession": "Real Estate Sales Representative at Search Realty (brokerage agent)",
+        "industry": "real estate",
+        "city": "Brampton",
+        "profile": "https://www.linkedin.com/in/cj-patel-ab44441a6/",
+        "added": "2026-11-06",
+        "status": "pending"
+      },
+      {
+        "name": "Navneet Kaur",
+        "profession": "RCIC-IRB, gracious immigration services (own practice)",
+        "industry": "immigration",
+        "city": "Brampton",
+        "profile": "https://www.linkedin.com/in/navneet-kaur-rcic-irb-0aa417111/",
+        "added": "2026-11-06",
+        "status": "pending"
       }
     ],
     "prospects": [
@@ -866,6 +893,16 @@
         "headline": "CPA / CA (India), self-employed CA",
         "chat": "https://www.linkedin.com/messaging/thread/2-Njk1NjA4MjktOWUxZi00ZjM5LWFkMTktMTA3NmM2NzBlNDIwXzEwMA==/",
         "status": "messaged"
+      },
+      {
+        "name": "Amanpreet Kaur",
+        "date": "2026-11-06",
+        "why": "Own practice, asked if open to collaborating",
+        "via": "LinkedIn",
+        "profile": "https://www.linkedin.com/in/amanpreet-kaur-3696b81a0/",
+        "headline": "RCIC, Founder of CRTC Immigration Services Inc.",
+        "chat": "https://www.linkedin.com/messaging/thread/2-MWFiOGViMmEtZmIwYi00NzEzLTkzMzYtZWVmMTBiYTBjMjYzXzEwMA==/",
+        "status": "waiting"
       }
     ]
   },
@@ -931,7 +968,7 @@
     {
       "name": "Jagjit Singh",
       "date": "2026-10-15",
-      "why": "You texted him Oct 7 early AM (outside bot hours). He asked how your business is doing — you take over.",
+      "why": "You texted him Oct 7 early AM (outside bot hours). He asked how your business is doing \u2014 you take over.",
       "via": "LinkedIn",
       "profile": "",
       "headline": "Manufacturing/Design Engineer (Mechanical)",
