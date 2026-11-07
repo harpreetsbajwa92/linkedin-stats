@@ -237,7 +237,8 @@
       "contactsExchanged": 0,
       "emailsShared": 0,
       "meetingsFixed": 0,
-      "requestsAccepted": 0
+      "requestsAccepted": 0,
+      "messagesSent": 14
     }
   },
   "contacts": [
@@ -968,7 +969,7 @@
     {
       "name": "Jagjit Singh",
       "date": "2026-10-15",
-      "why": "You texted him Oct 7 early AM (outside bot hours). He asked how your business is doing — you take over.",
+      "why": "You texted him Oct 7 early AM (outside bot hours). He asked how your business is doing \u2014 you take over.",
       "via": "LinkedIn",
       "profile": "",
       "headline": "Manufacturing/Design Engineer (Mechanical)",
