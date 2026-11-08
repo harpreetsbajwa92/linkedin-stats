@@ -811,7 +811,7 @@
         "city": "Brampton",
         "profile": "https://www.linkedin.com/in/amanpreet-kaur-3696b81a0/",
         "added": "2026-11-01",
-        "status": "messaged",
+        "status": "do-not-message",
         "accepted": "2026-11-01",
         "chat": "https://www.linkedin.com/messaging/thread/2-MWFiOGViMmEtZmIwYi00NzEzLTkzMzYtZWVmMTBiYTBjMjYzXzEwMA==/"
       },
@@ -938,7 +938,7 @@
       {
         "name": "Bhumika Patel",
         "date": "2026-10-15",
-        "why": "You started texting her (mortgage/finance connect). She replied about UK finance, hard commission market, looking for salary job.",
+        "why": "Real multi-message personal conversation: UK finance and commission difficulties, bank-connections offer, resume discussion and thanks. Retained as personal chat, not qualified collaboration.",
         "via": "LinkedIn",
         "profile": "https://www.linkedin.com/in/bhumika-patel-5a9570393/",
         "headline": "Mortgage Agent, Affinity Mortgage Solutions Inc.",
@@ -947,115 +947,38 @@
       {
         "name": "Sweety Jasani, CPA",
         "date": "2026-10-15",
-        "why": "You started texting her (CPA/finance connect question).",
+        "why": "Harpreet’s own protected chat; waiting for reply to his Oct 15 question.",
         "via": "LinkedIn",
         "profile": "https://www.linkedin.com/in/sweety-jasani-cpa-0b1b82189/",
         "headline": "CPA / CA (India), self-employed CA",
         "chat": "https://www.linkedin.com/messaging/thread/2-Njk1NjA4MjktOWUxZi00ZjM5LWFkMTktMTA3NmM2NzBlNDIwXzEwMA==/",
         "status": "waiting"
-      },
-      {
-        "name": "Amanpreet Kaur",
-        "date": "2026-11-06",
-        "why": "Own practice, asked if open to collaborating; she declined 4:34 PM (spouse of a WFG SMD, already in the business)",
-        "via": "LinkedIn",
-        "profile": "https://www.linkedin.com/in/amanpreet-kaur-3696b81a0/",
-        "headline": "RCIC, Founder of CRTC Immigration Services Inc.",
-        "chat": "https://www.linkedin.com/messaging/thread/2-MWFiOGViMmEtZmIwYi00NzEzLTkzMzYtZWVmMTBiYTBjMjYzXzEwMA==/",
-        "status": "messaged"
       }
     ]
   },
   "prospects": [
-    {
-      "name": "Sarabjit Singh Ahuja",
-      "date": "2026-10-07",
-      "why": "Wanted a wealth/insurance side hustle. Just cleared his LLQP exams and is waiting for his license. He asked how your business is going (unanswered, 4:02 PM).",
-      "via": "LinkedIn",
-      "profile": "https://www.linkedin.com/in/ACoAABT7vnoB8BR1nT1s0Xa4z_ehGU3JbWF7_D8",
-      "headline": "AR Specialist",
-      "chat": "https://www.linkedin.com/messaging/compose/?recipient=ACoAABT7vnoB8BR1nT1s0Xa4z_ehGU3JbWF7_D8"
-    },
-    {
-      "name": "Prit Gandhi",
-      "profile": "https://www.linkedin.com/in/ACoAAEuXfDEBkRlOJ1rglwWMGxuhzkGfKidgaDU",
-      "date": "2026-10-07",
-      "why": "You started texting him (4:16 PM). Number already exchanged in LinkedIn chat.",
-      "via": "LinkedIn",
-      "chat": "https://www.linkedin.com/messaging/compose/?recipient=ACoAAEuXfDEBkRlOJ1rglwWMGxuhzkGfKidgaDU"
-    },
-    {
-      "name": "Cameron Alcott",
-      "profile": "https://www.linkedin.com/in/ACoAABuK9nEBPDLucbwWRcsUQ1xvxYK6194QKk4",
-      "headline": "Helping Canadians Build Wealth Through Financial Literacy | Coach | Entrepreneur",
-      "date": "2026-10-07",
-      "why": "You started texting him (4:17 PM). He had pitched you a financial-literacy presentation.",
-      "via": "LinkedIn",
-      "chat": "https://www.linkedin.com/messaging/compose/?recipient=ACoAABuK9nEBPDLucbwWRcsUQ1xvxYK6194QKk4"
-    },
     {
       "name": "Eben Raaj",
       "headline": "",
       "city": "",
       "profile": "",
       "date": "2026-10-08",
-      "why": "Asked what services you offer and how you two could work together",
+      "why": "Harpreet shared his story and arranged a call; Eben agreed to call. Real collaboration discussion (style study lines 53, 77).",
       "chat": "https://www.linkedin.com/messaging/thread/2-MTVlNTlkMjEtYWQyYi00MmM0LTg2MmUtZDFiZTZmODRiOTg2XzAxMA==/"
-    },
-    {
-      "name": "Dhruv Satre",
-      "date": "2026-10-10",
-      "why": "You started texting him (Oct 10, 12:08 PM).",
-      "via": "LinkedIn",
-      "chat": "https://www.linkedin.com/messaging/thread/2-Mzc5ZjgxNmQtNTVhOS00MzhkLTk4OWUtOTIzM2U0YjQzYmIwXzAxMg==/"
-    },
-    {
-      "name": "Hezekiah Olakisan",
-      "date": "2026-10-10",
-      "why": "You started texting him (Oct 10, 12:05 PM). He runs his own insurance side business in Winnipeg.",
-      "via": "LinkedIn",
-      "chat": "https://www.linkedin.com/messaging/thread/2-YzdkMjQ3NWYtMWMyNS00ZTMzLWE0ZTktMzVhMzdkOTdjOWM2XzAxMA==/"
-    },
-    {
-      "name": "Ikram Patel",
-      "date": "2026-10-13",
-      "why": "Canada experience: struggling/surviving; IT career without STEM PR category feeling hard, worried about AI. Flagged after empathy + why question.",
-      "via": "LinkedIn",
-      "profile": "",
-      "headline": "Senior Data Engineer | Big Data | Hadoop | AWS | DWH",
-      "chat": "https://www.linkedin.com/messaging/thread/2-NmFkMTRlNzYtMWE3YS00MjExLTk5YWUtN2QxYjljYzUwMDZlXzAxMg==/"
     },
     {
       "name": "Jagjit Singh",
       "date": "2026-10-15",
-      "why": "You texted him Oct 7 early AM (outside bot hours). He asked how your business is doing \u2014 you take over.",
+      "why": "Long personal conversation and planned Nov 6 meetup; cancelled licensing discussion, but Harpreet continued with a lighter coffee offer. Personal-chat exception; no assistant outreach.",
       "via": "LinkedIn",
       "profile": "",
       "headline": "Manufacturing/Design Engineer (Mechanical)",
       "chat": "https://www.linkedin.com/messaging/thread/2-MzM0YThmMGEtN2U5Yy00OGYxLWJjMmMtZWQ2NmZjYmY5MDM3XzAxMA==/"
     },
     {
-      "name": "Hrishi Soni",
-      "date": "2026-10-18",
-      "why": "You started texting him (6:16 PM). He says he works remotely from India, so we stopped messaging him.",
-      "via": "LinkedIn",
-      "profile": "",
-      "headline": "Freelance branding and strategy",
-      "chat": "https://www.linkedin.com/messaging/thread/2-OTEwOTUxMTQtMGUzZS00ZmIyLTgxN2MtNWU0NGNhZTRjZThkXzAxMg==/"
-    },
-    {
-      "name": "Obaid Shaikh",
-      "date": "2026-10-19",
-      "why": "Engineer (application engineering + technical sales), said Canada is 'so far, so good'. Today he asked what you do, so you take over.",
-      "via": "LinkedIn",
-      "profile": "",
-      "headline": "PMP, application engineering / technical sales",
-      "chat": "https://www.linkedin.com/messaging/thread/2-MGM2MzU5ZmEtY2FkYi00NGRkLTk5OWItNmVjZDM3NGVhZGMwXzAxMg==/"
-    },
-    {
       "name": "Jay Kaushal",
       "date": "2026-10-23",
-      "why": "Data analyst in GenAI/LLM, long friendly chat since Oct 7. Said Canada has been amazing; I shared your side-hustle story and asked if he's thought about building something on the side.",
+      "why": "Rapport since Oct 7; side-hustle story and side-business question sent Oct 23 14:39; later personal meetup discussion. Currently visiting India, return discussed, not established as permanently left Canada.",
       "via": "LinkedIn",
       "profile": "",
       "headline": "Data Analyst (LLM, GenAI, ML) at OTSI",
@@ -1064,7 +987,7 @@
     {
       "name": "Saurabh Bhardwaj",
       "date": "2026-11-01",
-      "why": "AI and digital transformation (Power Platform), friendly chat since his birthday. Over 7 years in Canada and settled in easily; I shared your side-hustle story and asked if he's thought about building something on the side.",
+      "why": "Rapport, side-hustle story and question Nov 1 14:11; Harpreet discussed corporations and coffee, which Saurabh welcomed after settling his house.",
       "via": "LinkedIn",
       "profile": "",
       "headline": "AI and digital transformation",
@@ -1073,67 +996,11 @@
     {
       "name": "Ashli Ben",
       "date": "2026-11-03",
-      "why": "Operations/data analytics background (sales, admin, 2 yrs software dev), doing an analytics course. Said she's struggling to get a job; I empathized and asked what's been the hardest part.",
+      "why": "Explicitly protected as Harpreet’s Good prospect on Nov 6; assistant must never message.",
       "via": "LinkedIn",
       "profile": "",
       "headline": "Operations & Software Professional | Data Analytics",
       "chat": "https://www.linkedin.com/messaging/thread/2-N2YxMDdiMDItMjZkMS00MjFmLWFhODUtYjc4ZGU2Y2IzNTkwXzEwMA==/"
-    },
-    {
-      "name": "Harvindar Singh",
-      "date": "2026-11-07",
-      "why": "How's work going these days? (Oct 7 unlogged) \u2014 marked Good prospect / Harpreet takeover; never message again.",
-      "via": "LinkedIn",
-      "chat": "https://www.linkedin.com/messaging/thread/2-YmFlODY5Y2UtYjllNC00MWU2LWJjODYtNWMyYjMyNWJiNTQzXzAxMA==/"
-    },
-    {
-      "name": "Sam (Shadab) Manzar",
-      "date": "2026-11-07",
-      "why": "Hey Sam, how's work going these days? (Oct 7 unlogged) \u2014 marked Good prospect / Harpreet takeover; never message again.",
-      "via": "LinkedIn",
-      "chat": "https://www.linkedin.com/messaging/thread/2-YmVlZDhjOWItOGFkNi00ZWVhLWE5N2YtMjFhZTdlMTg3ZjU2XzAxMw==/"
-    },
-    {
-      "name": "Kevalya Raval",
-      "date": "2026-11-07",
-      "why": "Hey Kevalya, how's work going these days? (Oct 7 unlogged) \u2014 marked Good prospect / Harpreet takeover; never message again.",
-      "via": "LinkedIn",
-      "chat": "https://www.linkedin.com/messaging/thread/2-OGY3YmZkN2QtM2E2Mi00MjdkLTkzYjAtZGQ4MTliYmM1ZjJkXzAxMg==/"
-    },
-    {
-      "name": "Gurkaran Singh Sran",
-      "date": "2026-11-07",
-      "why": "Hey Gurkaran, how's work going these days? (Oct 7 unlogged) \u2014 marked Good prospect / Harpreet takeover; never message again.",
-      "via": "LinkedIn",
-      "chat": "https://www.linkedin.com/messaging/thread/2-Yjk1Y2IyYjctYTkxNC00Njk1LTg0NzEtYTdmYmVjOWQwNzE1XzAxMA==/"
-    },
-    {
-      "name": "Benny Savio Hudson",
-      "date": "2026-11-07",
-      "why": "How's work going these days, Benny? (Oct 7 unlogged) \u2014 marked Good prospect / Harpreet takeover; never message again.",
-      "via": "LinkedIn",
-      "chat": "https://www.linkedin.com/messaging/thread/2-NzExN2VkZGQtZmY4Yy00YjViLWI5YWUtOGRjNDcwZTIxMTljXzAxMA==/"
-    },
-    {
-      "name": "Kevin Patel",
-      "date": "2026-11-07",
-      "why": "Asked what you were hoping to connect about; said he's focused on software (HVAC project) and may not be the right person if it's finance or insurance, but happy to hear you out.",
-      "via": "LinkedIn",
-      "chat": "https://www.linkedin.com/messaging/thread/2-MWY0ZDg0OTItMGM1NC00ZDViLWIyZjEtNzU2OTQwYjhkOWE0XzEwMA==/"
-    },
-    {
-      "name": "Jay Gill, CPP",
-      "date": "2026-11-07",
-      "why": "Replied to the opener with \"How can I help Harpreet?\" (asking why you connected).",
-      "via": "LinkedIn",
-      "chat": "https://www.linkedin.com/messaging/thread/2-YTdjOWFmMTctMjMyOS00N2E5LTliMmUtYmJkNjUzMGRiMTdjXzEwMA==/"
-    },
-    {
-      "name": "Dhaval Mistry",
-      "date": "2026-11-07",
-      "why": "Asked the reason for connecting; said work is going well, almost year end.",
-      "via": "LinkedIn",
-      "chat": "https://www.linkedin.com/messaging/thread/2-YWU3ZmNiMmUtMDJjNS00NDY2LTkzYjYtYjMxZjFkMTFlNzVkXzEwMA==/"
     }
   ],
   "learning": {
