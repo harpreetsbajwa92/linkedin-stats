@@ -247,6 +247,15 @@
       "emailsShared": 0,
       "meetingsFixed": 0,
       "requestsAccepted": 2
+    },
+    "2026-11-08": {
+      "peopleAdded": 7,
+      "textsSent": 1,
+      "activeChats": 0,
+      "contactsExchanged": 0,
+      "emailsShared": 0,
+      "meetingsFixed": 0,
+      "requestsAccepted": 0
     }
   },
   "contacts": [
@@ -424,6 +433,9 @@
         "requestsAccepted": 0
       },
       "2026-11-07": {
+        "peopleAdded": 2
+      },
+      "2026-11-08": {
         "peopleAdded": 2
       }
     },
@@ -902,6 +914,24 @@
         "profile": "https://www.linkedin.com/in/harjot-singh-sandhu-257511294/",
         "headline": "Mortgage Agent at Citadel Mortgages",
         "added": "2026-11-07"
+      },
+      {
+        "name": "Kirpal Singh",
+        "status": "pending",
+        "industry": "law",
+        "city": "Brampton",
+        "profile": "https://www.linkedin.com/in/kirpal-singh-23a9b6148/",
+        "headline": "Barrister, Solicitor & Notary Public",
+        "added": "2026-11-08"
+      },
+      {
+        "name": "Reshma Sharma, CPA",
+        "status": "pending",
+        "industry": "accounting",
+        "city": "Brampton",
+        "profile": "https://www.linkedin.com/in/reshma-sharma-cpa-04199a64/",
+        "headline": "Wealth Advisor",
+        "added": "2026-11-08"
       }
     ],
     "prospects": [
