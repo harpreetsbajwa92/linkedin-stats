@@ -458,7 +458,7 @@
         "city": "GTA",
         "profile": "https://www.linkedin.com/in/gbsmortgages/",
         "added": "2026-10-09",
-        "status": "pending"
+        "status": "withdrawn"
       },
       {
         "name": "Bajwa CPA",
@@ -466,7 +466,7 @@
         "city": "GTA",
         "profile": "https://www.linkedin.com/in/bajwa-cpa-381224199/",
         "added": "2026-10-09",
-        "status": "pending"
+        "status": "withdrawn"
       },
       {
         "name": "Sim Singh Realtor",
@@ -998,7 +998,7 @@
     {
       "name": "Jagjit Singh",
       "date": "2026-10-15",
-      "why": "You texted him Oct 7 early AM (outside bot hours). He asked how your business is doing — you take over.",
+      "why": "You texted him Oct 7 early AM (outside bot hours). He asked how your business is doing \u2014 you take over.",
       "via": "LinkedIn",
       "profile": "",
       "headline": "Manufacturing/Design Engineer (Mechanical)",
@@ -1052,35 +1052,35 @@
     {
       "name": "Harvindar Singh",
       "date": "2026-11-07",
-      "why": "How's work going these days? (Oct 7 unlogged) — marked Good prospect / Harpreet takeover; never message again.",
+      "why": "How's work going these days? (Oct 7 unlogged) \u2014 marked Good prospect / Harpreet takeover; never message again.",
       "via": "LinkedIn",
       "chat": "https://www.linkedin.com/messaging/thread/2-YmFlODY5Y2UtYjllNC00MWU2LWJjODYtNWMyYjMyNWJiNTQzXzAxMA==/"
     },
     {
       "name": "Sam (Shadab) Manzar",
       "date": "2026-11-07",
-      "why": "Hey Sam, how's work going these days? (Oct 7 unlogged) — marked Good prospect / Harpreet takeover; never message again.",
+      "why": "Hey Sam, how's work going these days? (Oct 7 unlogged) \u2014 marked Good prospect / Harpreet takeover; never message again.",
       "via": "LinkedIn",
       "chat": "https://www.linkedin.com/messaging/thread/2-YmVlZDhjOWItOGFkNi00ZWVhLWE5N2YtMjFhZTdlMTg3ZjU2XzAxMw==/"
     },
     {
       "name": "Kevalya Raval",
       "date": "2026-11-07",
-      "why": "Hey Kevalya, how's work going these days? (Oct 7 unlogged) — marked Good prospect / Harpreet takeover; never message again.",
+      "why": "Hey Kevalya, how's work going these days? (Oct 7 unlogged) \u2014 marked Good prospect / Harpreet takeover; never message again.",
       "via": "LinkedIn",
       "chat": "https://www.linkedin.com/messaging/thread/2-OGY3YmZkN2QtM2E2Mi00MjdkLTkzYjAtZGQ4MTliYmM1ZjJkXzAxMg==/"
     },
     {
       "name": "Gurkaran Singh Sran",
       "date": "2026-11-07",
-      "why": "Hey Gurkaran, how's work going these days? (Oct 7 unlogged) — marked Good prospect / Harpreet takeover; never message again.",
+      "why": "Hey Gurkaran, how's work going these days? (Oct 7 unlogged) \u2014 marked Good prospect / Harpreet takeover; never message again.",
       "via": "LinkedIn",
       "chat": "https://www.linkedin.com/messaging/thread/2-Yjk1Y2IyYjctYTkxNC00Njk1LTg0NzEtYTdmYmVjOWQwNzE1XzAxMA==/"
     },
     {
       "name": "Benny Savio Hudson",
       "date": "2026-11-07",
-      "why": "How's work going these days, Benny? (Oct 7 unlogged) — marked Good prospect / Harpreet takeover; never message again.",
+      "why": "How's work going these days, Benny? (Oct 7 unlogged) \u2014 marked Good prospect / Harpreet takeover; never message again.",
       "via": "LinkedIn",
       "chat": "https://www.linkedin.com/messaging/thread/2-NzExN2VkZGQtZmY4Yy00YjViLWI5YWUtOGRjNDcwZTIxMTljXzAxMA==/"
     },
