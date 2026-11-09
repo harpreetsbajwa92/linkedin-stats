@@ -258,8 +258,8 @@
       "requestsAccepted": 0
     },
     "2026-11-09": {
-      "peopleAdded": 0,
-      "textsSent": 3,
+      "peopleAdded": 10,
+      "textsSent": 4,
       "activeChats": 3,
       "contactsExchanged": 0,
       "emailsShared": 0,
@@ -941,6 +941,24 @@
         "profile": "https://www.linkedin.com/in/reshma-sharma-cpa-04199a64/",
         "headline": "Wealth Advisor",
         "added": "2026-11-08"
+      },
+      {
+        "name": "Akshayee Shah",
+        "status": "pending",
+        "industry": "immigration",
+        "city": "Brampton",
+        "profile": "https://www.linkedin.com/in/akshayee-shah-9b51ba2a5/",
+        "headline": "RCIC at Reyan Immigration and Citizenship Solutions Inc.",
+        "added": "2026-11-09"
+      },
+      {
+        "name": "Jot Singh",
+        "status": "pending",
+        "industry": "mortgage",
+        "city": "Mississauga",
+        "profile": "https://www.linkedin.com/in/jot-singh-273417137/",
+        "headline": "Mortgage Agent at Mortgage Alliance",
+        "added": "2026-11-09"
       }
     ],
     "prospects": [
