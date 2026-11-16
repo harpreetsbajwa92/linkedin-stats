@@ -310,6 +310,12 @@
       "peopleAdded": 0,
       "requestsAccepted": 0,
       "activeChats": 2
+    },
+    "2026-11-16": {
+      "textsSent": 1,
+      "peopleAdded": 0,
+      "requestsAccepted": 0,
+      "activeChats": 1
     }
   },
   "contacts": [
@@ -1045,7 +1051,7 @@
       {
         "name": "Sweety Jasani, CPA",
         "date": "2026-10-15",
-        "why": "Harpreet’s own protected chat; waiting for reply to his Oct 15 question.",
+        "why": "Harpreet\u2019s own protected chat; waiting for reply to his Oct 15 question.",
         "via": "LinkedIn",
         "profile": "https://www.linkedin.com/in/sweety-jasani-cpa-0b1b82189/",
         "headline": "CPA / CA (India), self-employed CA",
@@ -1094,7 +1100,7 @@
     {
       "name": "Ashli Ben",
       "date": "2026-11-03",
-      "why": "Explicitly protected as Harpreet’s Good prospect on Nov 6; assistant must never message.",
+      "why": "Explicitly protected as Harpreet\u2019s Good prospect on Nov 6; assistant must never message.",
       "via": "LinkedIn",
       "profile": "",
       "headline": "Operations & Software Professional | Data Analytics",
@@ -1107,6 +1113,6 @@
     "messagesStudied": 272,
     "daysStudied": 30,
     "playbookLines": 41,
-    "latest": "Harpreet answered Ashli's job-search frustration with a resume-help offer plus his Nestlé referral and business story, no pitch."
+    "latest": "Harpreet answered Ashli's job-search frustration with a resume-help offer plus his Nestl\u00e9 referral and business story, no pitch."
   }
 }
