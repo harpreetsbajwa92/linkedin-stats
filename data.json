@@ -318,7 +318,7 @@
       "activeChats": 3
     },
     "2026-11-17": {
-      "textsSent": 8,
+      "textsSent": 9,
       "peopleAdded": 0,
       "requestsAccepted": 0,
       "activeChats": 3
@@ -1057,7 +1057,7 @@
       {
         "name": "Sweety Jasani, CPA",
         "date": "2026-10-15",
-        "why": "Harpreet\u2019s own protected chat; waiting for reply to his Oct 15 question.",
+        "why": "Harpreet’s own protected chat; waiting for reply to his Oct 15 question.",
         "via": "LinkedIn",
         "profile": "https://www.linkedin.com/in/sweety-jasani-cpa-0b1b82189/",
         "headline": "CPA / CA (India), self-employed CA",
@@ -1106,11 +1106,20 @@
     {
       "name": "Ashli Ben",
       "date": "2026-11-03",
-      "why": "Explicitly protected as Harpreet\u2019s Good prospect on Nov 6; assistant must never message.",
+      "why": "Explicitly protected as Harpreet’s Good prospect on Nov 6; assistant must never message.",
       "via": "LinkedIn",
       "profile": "",
       "headline": "Operations & Software Professional | Data Analytics",
       "chat": "https://www.linkedin.com/messaging/thread/2-N2YxMDdiMDItMjZkMS00MjFmLWFhODUtYjc4ZGU2Y2IzNTkwXzEwMA==/"
+    },
+    {
+      "name": "Kushal Mehta",
+      "date": "2026-11-17",
+      "why": "Birthday-wish chat built rapport (Bombardier, data analysis/change mgmt, supply chain common ground); said 11 years in Canada, satisfied; we shared the side-hustle story and asked if he has thought about building something on the side (step e GOOD path).",
+      "via": "LinkedIn",
+      "profile": "",
+      "headline": "Talks about #supply chain #digitization #data analysis #leadership",
+      "chat": "https://www.linkedin.com/messaging/thread/2-MGNhMDlmNGItYWEyNC00MDk2LWFlM2UtNGRkNTYwZTVkMTU1XzAxMA==/"
     }
   ],
   "learning": {
